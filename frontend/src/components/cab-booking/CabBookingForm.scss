@@ -1,0 +1,209 @@
+@use "../../styles/variables" as *;
+
+.cab-booking {
+  width: 100%;
+  padding: 20px 0 30px;
+  background: $white;
+
+  &__container {
+    width: 92%;
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  &__tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    padding: 4px;
+    margin-bottom: 14px;
+    background: $bg;
+    border-radius: 30px;
+
+    button {
+      border: none;
+      background: transparent;
+      color: $text-dark;
+      padding: 10px 8px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.active {
+        background: $primary;
+        color: $white;
+      }
+
+      &:hover:not(.active) {
+        background: $primary-light;
+      }
+    }
+  }
+
+  &__form {
+    padding: 12px;
+    border: 1px solid $border;
+    border-radius: 20px;
+    background: $white;
+  }
+
+  &__field {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    position: relative;
+    padding: 14px 8px;
+    border-bottom: 1px solid $border;
+
+    > i {
+      color: $text-light;
+      font-size: 21px;
+      margin-top: 2px;
+      min-width: 20px;
+    }
+  }
+
+  &__field-content {
+    flex: 1;
+    min-width: 0;
+
+    label {
+      display: block;
+      margin-bottom: 4px;
+      color: $text-light;
+      font-size: 15px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: $text-dark;
+      font-size: 18px;
+      font-weight: 600;
+
+      &::placeholder {
+        color: $text-muted;
+        font-weight: 400;
+      }
+    }
+
+    input[type="datetime-local"] {
+      font-size: 16px;
+    }
+  }
+
+  &__return {
+    padding: 12px 8px 4px;
+  }
+
+  &__add-return {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    color: $primary;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  &__return-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+
+    span {
+      color: $text-dark;
+      font-weight: 600;
+    }
+
+    button {
+      border: none;
+      background: transparent;
+      color: $danger;
+      cursor: pointer;
+    }
+  }
+
+  &__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: $primary;
+    color: $white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $primary-dark;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .cab-booking {
+    padding: 12px 0 22px;
+
+    &__container {
+      width: 94%;
+    }
+
+    &__tabs {
+      margin-bottom: 12px;
+
+      button {
+        padding: 9px 3px;
+        font-size: 12px;
+      }
+    }
+
+    &__form {
+      padding: 8px;
+      border-radius: 18px;
+    }
+
+    &__field {
+      gap: 10px;
+      padding: 13px 5px;
+    }
+
+    &__field-content {
+      label {
+        font-size: 14px;
+      }
+
+      input,
+      select {
+        font-size: 16px;
+      }
+
+      input[type="datetime-local"] {
+        font-size: 14px;
+      }
+    }
+
+    &__submit {
+      padding: 14px;
+      font-size: 17px;
+    }
+  }
+}

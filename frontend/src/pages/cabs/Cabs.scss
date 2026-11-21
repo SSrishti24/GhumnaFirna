@@ -1,0 +1,75 @@
+@use "../../styles/variables" as *;
+
+.cabs-page {
+  min-height: 60vh;
+  background: $bg;
+  padding: 35px 0 45px;
+
+  &__heading {
+    width: 92%;
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+
+    h1 {
+      color: $text-dark;
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: $text-light;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__banner {
+    width: 92%;
+    max-width: 1200px;
+    margin: 15px auto 35px;
+    overflow: hidden;
+    border-radius: 18px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}
+
+.mobile-travel-categories {
+  display: none;
+
+  @media (max-width: 768px) {
+    padding-top: 16px;
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .cabs-page {
+    padding: 22px 0 30px;
+
+    &__heading {
+      h1 {
+        font-size: 23px;
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .cabs-page {
+    &__banner {
+      width: 92%;
+      margin: 10px auto 10px;
+      border-radius: 12px;
+    }
+  }
+}

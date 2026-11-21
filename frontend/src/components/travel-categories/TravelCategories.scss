@@ -1,0 +1,137 @@
+
+@use "../../styles/variables" as *;
+
+.travel-categories {
+  width: 100%;
+  padding: 0 0 20px;
+  background: $white;
+
+  &__container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 10px;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+
+    background: $white;
+    border: 1px solid $border;
+    border-radius: 18px;
+  }
+
+  &__item {
+    min-width: 0;
+    min-height: 85px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      .travel-categories__icon {
+        color: $accent;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  &__icon {
+    font-size: 28px;
+    color: $primary;
+    transition: all 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: $text-dark;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .new-badge {
+    display: inline-block;
+    padding: 2px 5px;
+    background: $success;
+    color: $white;
+    font-size: 9px;
+    font-weight: 700;
+    border-radius: 4px;
+  }
+}
+
+// Tablet
+@media (max-width: 768px) {
+  .travel-categories {
+    &__container {
+      padding: 16px 8px;
+      gap: 5px;
+    }
+
+    &__item {
+      min-height: 75px;
+      gap: 8px;
+    }
+
+    &__icon {
+      font-size: 24px;
+    }
+
+    &__title {
+      font-size: 12px;
+    }
+  }
+}
+
+// Mobile
+@media (max-width: 480px) {
+  .travel-categories {
+    padding-bottom: 16px;
+    
+
+    &__container {
+      width: 92%;
+      padding: 7px 5px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 3px;
+      border-radius: 14px;
+    }
+
+    &__item {
+      min-height: 65px;
+      gap: 7px;
+    }
+
+    &__icon {
+      font-size: 21px;
+    }
+
+    &__title {
+      font-size: 10px;
+      gap: 3px;
+    }
+
+    .new-badge {
+      font-size: 7px;
+      padding: 2px 3px;
+    }
+  }
+}

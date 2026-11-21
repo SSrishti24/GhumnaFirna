@@ -1,0 +1,105 @@
+
+@use "../../styles/variables" as *;
+
+.popular-darshan {
+  width: 100%;
+  padding: 20px 0 35px;
+  background: $white;
+
+  &__container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+
+    h2 {
+      font-size: 25px;
+      font-weight: 700;
+      color: $text-dark;
+      margin: 0;
+    }
+  }
+
+  &__view-all {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px;
+    background: transparent;
+    color: $primary;
+    font-size: 14px;
+    font-weight: 600;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .darshan-card {
+      flex: 0 0 280px;
+    }
+  }
+}
+
+// Tablet
+@media (max-width: 768px) {
+  .popular-darshan {
+    &__header h2 {
+      font-size: 21px;
+    }
+
+    &__grid .darshan-card {
+      flex-basis: 230px;
+    }
+  }
+}
+
+// Mobile
+@media (max-width: 480px) {
+  .popular-darshan {
+    padding: 12px 0 25px;
+
+    &__container {
+      width: 92%;
+    }
+
+    &__header {
+      margin-bottom: 12px;
+
+      h2 {
+        font-size: 17px;
+      }
+    }
+
+    &__view-all {
+      font-size: 12px;
+      gap: 3px;
+    }
+
+    &__grid {
+      gap: 12px;
+
+      .darshan-card {
+        flex: 0 0 190px;
+      }
+    }
+  }
+}

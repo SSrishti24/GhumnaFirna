@@ -1,0 +1,330 @@
+@use "../../styles/variables" as *;
+
+.cab-result-card {
+  overflow: hidden;
+  border: 1px solid $border;
+  border-radius: 12px;
+  background: $white;
+  box-shadow: $shadow;
+  margin-bottom: 18px;
+
+  &__main {
+    padding: 14px;
+  }
+
+  &__vehicle {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed $border;
+  }
+
+  &__image {
+    width: 145px;
+    height: 100px;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px;
+    background: $primary-light;
+
+    img {
+      width: 100%;
+      height: 75px;
+      object-fit: contain;
+      display: block;
+    }
+
+    span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 5px;
+      text-align: center;
+      background: $secondary;
+      color: $white;
+      font-size: 12px;
+    }
+  }
+
+  &__vehicle-info {
+    min-width: 0;
+
+    h3 {
+      margin: 0 0 9px;
+      color: $text-dark;
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    span {
+      color: $text-light;
+      font-size: 14px;
+      padding-right: 8px;
+      border-right: 1px solid $border;
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+
+  &__details {
+    padding: 10px 0;
+    border-bottom: 1px dashed $border;
+  }
+
+    &__detail {
+    display: grid;
+    grid-template-columns: 185px 1fr;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 0;
+
+    p {
+        margin: 0;
+        color: $text-dark;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    .free-text {
+        color: $success;
+    }
+    }
+
+    &__label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $text-dark;
+    font-size: 15px;
+    white-space: nowrap;
+
+    i {
+        font-size: 19px;
+        color: $text-light;
+    }
+
+    .cancellation {
+        color: $success;
+    }
+    }
+
+  &__coupon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 0;
+    border-bottom: 1px dashed $border;
+    font-size: 14px;
+
+    > div {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .applied {
+      color: $success;
+    }
+
+    strong {
+      padding: 5px 10px;
+      border: 1px dashed $success;
+      border-radius: 6px;
+      color: $success;
+      background: $success-bg;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 13px 0 4px;
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    del {
+      color: $danger;
+      font-size: 14px;
+    }
+
+    strong {
+      color: $text-dark;
+      font-size: 23px;
+      font-weight: 700;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  &__book {
+    padding: 9px 22px;
+    border: none;
+    border-radius: 25px;
+    background: $primary;
+    color: $white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $primary-dark;
+    }
+  }
+
+  &__more {
+    border: none;
+    background: transparent;
+    color: $primary;
+    font-size: 13px;
+    cursor: pointer;
+
+    i {
+      margin-left: 5px;
+    }
+  }
+
+  &__extra {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 0 3px;
+    border-top: 1px dashed $border;
+    margin-top: 12px;
+
+    span {
+      color: $text-light;
+      font-size: 13px;
+    }
+
+    i {
+      color: $success;
+      margin-right: 5px;
+    }
+  }
+
+  &__benefits {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding: 10px 14px;
+    background: $primary-light;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: $text-dark;
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .cab-result-card {
+    &__main {
+      padding: 11px;
+    }
+
+    &__vehicle {
+      gap: 12px;
+    }
+
+    &__image {
+      width: 112px;
+      height: 85px;
+
+      img {
+        height: 62px;
+      }
+    }
+
+    &__vehicle-info {
+      h3 {
+        font-size: 15px;
+      }
+    }
+
+    &__meta {
+      gap: 5px;
+
+      span {
+        font-size: 11px;
+        padding-right: 5px;
+      }
+    }
+
+    &__detail {
+      grid-template-columns: 125px 1fr;
+      align-items: center;
+      gap: 8px;
+
+      p {
+        padding-left: 0;
+        font-size: 12px;
+      }
+    }
+
+    &__label {
+      gap: 6px;
+      font-size: 12px;
+
+      i {
+        font-size: 16px;
+      }
+    }
+
+    &__coupon {
+      font-size: 12px;
+
+      strong {
+        font-size: 11px;
+        padding: 4px 7px;
+      }
+    }
+
+    &__price strong {
+      font-size: 21px;
+    }
+
+    &__book {
+      padding: 8px 17px;
+      font-size: 13px;
+    }
+
+    &__benefits {
+      gap: 9px;
+
+      span {
+        font-size: 11px;
+      }
+    }
+  }
+}

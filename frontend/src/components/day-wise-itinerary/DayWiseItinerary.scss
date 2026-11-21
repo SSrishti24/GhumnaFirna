@@ -1,0 +1,333 @@
+
+@use "../../styles/variables" as *;
+
+.day-itinerary {
+  width: 100%;
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid $border;
+  border-radius: 12px;
+  background: $white;
+  box-shadow: $shadow;
+
+  // Heading
+  &__heading {
+    position: relative;
+    margin: 0 0 20px;
+    padding-left: 13px;
+    color: $text-dark;
+    font-size: 20px;
+    font-weight: 700;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -16px;
+      width: 4px;
+      height: 29px;
+      background: $primary;
+    }
+  }
+
+  // List
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 9px;
+    position: relative;
+  }
+
+  // Timeline
+  &__timeline {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 39px;
+      bottom: -12px;
+      left: 50%;
+      border-left: 1px dashed $border;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__item:last-child &__timeline::after {
+    display: none;
+  }
+
+  // Day Badge
+  &__number {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 38px;
+    border-radius: 8px;
+    background: $accent;
+    color: $white;
+    box-shadow: $shadow;
+
+    span {
+      font-size: 7px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    strong {
+      font-size: 15px;
+      line-height: 1.2;
+    }
+  }
+
+  // Card
+  &__card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid $primary-light;
+    border-radius: 11px;
+    background: linear-gradient(
+      110deg,
+      $white,
+      $bg-light
+    );
+    box-shadow: 0 2px 7px rgba(15, 23, 42, 0.04);
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  // Toggle Button
+  &__toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    min-height: 57px;
+    padding: 8px 11px 8px 14px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  // Title
+  &__title {
+    min-width: 0;
+
+    > span {
+      display: block;
+      margin-bottom: 3px;
+      color: $primary;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+    }
+
+    h3 {
+      margin: 0;
+      color: $text-dark;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+  }
+
+  // Plus / Minus Icon
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border: 1px solid $primary-light;
+    border-radius: 7px;
+    background: $white;
+    color: $primary;
+    box-shadow: $shadow;
+    transition: all 0.3s ease;
+
+    i {
+      font-size: 11px;
+      line-height: 1;
+    }
+  }
+
+  // Open Card
+  &__item.is-open &__card {
+    border-color: $primary-light;
+    background: $white;
+  }
+
+  &__item.is-open &__toggle {
+    background: $primary-light;
+  }
+
+  &__item.is-open &__title h3 {
+    color: $primary;
+  }
+
+  &__item.is-open &__icon {
+    background: $primary;
+    border-color: $primary;
+    color: $white;
+  }
+
+  // Smooth Accordion Animation
+  &__content-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
+
+    &.expanded {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__content {
+    min-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    transition: padding 0.35s ease;
+
+    ul {
+      margin: 0;
+      padding-left: 17px;
+      list-style-type: circle;
+    }
+
+    li {
+      padding: 2px 0;
+      color: $text-light;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+  }
+
+  &__content-wrapper.expanded &__content {
+    padding-top: 10px;
+    padding-bottom: 12px;
+  }
+}
+
+// Mobile Responsive
+@media (max-width: 600px) {
+  .day-itinerary {
+    padding: 12px 9px;
+    margin-top: 14px;
+
+    &__heading {
+      margin-bottom: 17px;
+      padding-left: 11px;
+      font-size: 17px;
+
+      &::before {
+        left: -9px;
+        height: 25px;
+        width: 3px;
+      }
+    }
+
+    &__list {
+      gap: 10px;
+    }
+
+    &__item {
+      grid-template-columns: 32px minmax(0, 1fr);
+      gap: 6px;
+    }
+
+    &__timeline {
+      &::after {
+        top: 34px;
+        bottom: -10px;
+      }
+    }
+
+    &__number {
+      width: 29px;
+      height: 34px;
+      border-radius: 7px;
+
+      span {
+        font-size: 6px;
+      }
+
+      strong {
+        font-size: 13px;
+      }
+    }
+
+    &__card {
+      border-radius: 9px;
+    }
+
+    &__toggle {
+      min-height: 51px;
+      padding: 7px 8px;
+    }
+
+    &__title {
+      > span {
+        font-size: 8px;
+        margin-bottom: 2px;
+      }
+
+      h3 {
+        font-size: 12px;
+      }
+    }
+
+    &__icon {
+      width: 23px;
+      height: 23px;
+
+      i {
+        font-size: 10px;
+      }
+    }
+
+    &__content {
+      padding-left: 10px;
+      padding-right: 10px;
+
+      ul {
+        padding-left: 15px;
+      }
+
+      li {
+        font-size: 11px;
+        padding: 2px 0;
+      }
+    }
+
+    &__content-wrapper.expanded &__content {
+      padding-top: 8px;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+// Accessibility
+@media (prefers-reduced-motion: reduce) {
+  .day-itinerary {
+    &__content-wrapper,
+    &__content,
+    &__icon,
+    &__card {
+      transition: none;
+    }
+  }
+}

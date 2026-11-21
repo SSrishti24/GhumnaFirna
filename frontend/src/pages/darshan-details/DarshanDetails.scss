@@ -1,0 +1,416 @@
+
+@use "../../styles/variables" as *;
+
+// Darshan Details Page
+.darshan-details {
+  padding: 22px 0 40px;
+  background: $bg;
+
+  &__container {
+    width: 100%;
+    max-width: $container-width;
+    padding: 0 $container-padding;
+    margin: 0 auto;
+  }
+
+  &__breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 13px;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    i {
+      color: $text-muted;
+      font-size: 10px;
+    }
+
+    span {
+      color: $text-light;
+    }
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    gap: 24px;
+    align-items: start;
+  }
+
+  &__left,
+  &__right {
+    min-width: 0;
+  }
+
+  &__image {
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: $primary-light;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__not-found {
+    display: flex;
+    min-height: 50vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    h2 {
+      color: $text-dark;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: $primary;
+      color: $white;
+      cursor: pointer;
+    }
+  }
+}
+
+// Darshan Booking Card
+.darshan-booking {
+  display: flex;
+  min-height: 390px;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid $border;
+  border-radius: 14px;
+  background: $white;
+  box-shadow: $shadow;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 16px;
+    background: $primary-light;
+
+    > span {
+      color: $text-dark;
+      font-size: 15px;
+      font-weight: 700;
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    color: $text-dark;
+    white-space: nowrap;
+
+    small {
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    strong {
+      font-size: 21px;
+      font-weight: 800;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 13px;
+    padding: 14px 16px;
+  }
+
+  &__row {
+    display: grid;
+    gap: 10px;
+
+    &--two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &--three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__field {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 5px;
+
+    > label {
+      color: $text-dark;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    input:not([type="radio"]),
+    select {
+      width: 100%;
+      height: 38px;
+      padding: 7px 9px;
+      border: 1px solid $border;
+      border-radius: 7px;
+      outline: none;
+      background: $white;
+      color: $text-dark;
+      font-family: inherit;
+      font-size: 12px;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        border-color: $primary;
+      }
+    }
+  }
+
+  &__total {
+    display: flex;
+    height: 38px;
+    align-items: center;
+    padding: 7px 10px;
+    border: 1px solid $primary-light;
+    border-radius: 7px;
+    background: $bg-light;
+    color: $primary;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  &__stay-options {
+    display: flex;
+    height: 38px;
+    align-items: center;
+    gap: 15px;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: $text-dark;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    input {
+      margin: 0;
+      accent-color: $primary;
+    }
+  }
+
+  &__submit {
+    display: flex;
+    width: 100%;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+    border: none;
+    border-radius: 25px;
+    background: $primary;
+    color: $white;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease;
+
+    &:hover {
+      background: $primary-dark;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// Tablet Responsive
+@media (max-width: 900px) {
+  .darshan-details {
+    &__layout {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    &__image {
+      height: 350px;
+    }
+  }
+
+  .darshan-booking {
+    min-height: auto;
+
+    &__form {
+      gap: 12px;
+    }
+
+    &__submit {
+      margin-top: 5px;
+    }
+  }
+}
+
+// Mobile Responsive
+@media (max-width: 600px) {
+  .darshan-details {
+    padding: 15px 0 28px;
+
+    &__container {
+      padding: 0 12px;
+    }
+
+    &__breadcrumb {
+      gap: 6px;
+      margin-bottom: 13px;
+      font-size: 11px;
+    }
+
+    &__layout {
+      gap: 14px;
+    }
+
+    &__image {
+      height: 230px;
+      border-radius: 10px;
+    }
+  }
+
+  .darshan-booking {
+    min-height: auto;
+    border-radius: 11px;
+
+    &__header {
+      padding: 12px 13px;
+
+      > span {
+        font-size: 13px;
+      }
+    }
+
+    &__price {
+      small {
+        font-size: 9px;
+      }
+
+      strong {
+        font-size: 18px;
+      }
+    }
+
+    &__form {
+      gap: 11px;
+      padding: 12px;
+    }
+
+    &__row {
+      gap: 8px;
+    }
+
+    &__field {
+      gap: 4px;
+
+      > label {
+        font-size: 11px;
+      }
+
+      input:not([type="radio"]),
+      select {
+        height: 38px;
+        padding: 7px;
+        font-size: 11px;
+      }
+    }
+
+    &__total {
+      height: 36px;
+      font-size: 12px;
+    }
+
+    &__stay-options {
+      height: 36px;
+      gap: 13px;
+
+      label {
+        gap: 4px;
+        font-size: 11px;
+      }
+    }
+
+    &__submit {
+      min-height: 41px;
+      margin-top: 3px;
+      font-size: 12px;
+    }
+  }
+}
+
+// Small Mobile
+@media (max-width: 360px) {
+  .darshan-booking {
+    &__header {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    &__row {
+      grid-template-columns: 1fr;
+      gap: 9px;
+    }
+
+    &__field {
+      input:not([type="radio"]),
+      select {
+        font-size: 10px;
+      }
+    }
+
+    &__stay-options {
+      height: auto;
+      flex-wrap: wrap;
+    }
+  }
+
+  .darshan-details {
+    &__image {
+      height: 200px;
+    }
+  }
+}
+
+// Accessibility
+@media (prefers-reduced-motion: reduce) {
+  .darshan-booking {
+    &__submit,
+    &__field input,
+    &__field select {
+      transition: none;
+    }
+  }
+}

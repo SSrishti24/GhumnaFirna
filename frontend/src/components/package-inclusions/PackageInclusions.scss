@@ -1,0 +1,151 @@
+@use "../../styles/variables" as *;
+
+.package-inclusions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+  margin-top: 16px;
+
+  &__card {
+    min-width: 0;
+    height: 175px;
+    padding: 13px 16px;
+    border: 1px solid $border;
+    border-radius: 11px;
+    box-shadow: $shadow;
+    overflow: hidden;
+
+    h2 {
+      position: relative;
+      margin: 0 0 9px;
+      padding-left: 10px;
+      color: $text-dark;
+      font-size: 16px;
+      font-weight: 700;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: -16px;
+        width: 4px;
+        height: 24px;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      max-height: 165px;
+      margin: 0;
+      padding: 0;
+      overflow-y: auto;
+      list-style: none;
+
+      scrollbar-width: thin;
+      scrollbar-color: $text-muted transparent;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $text-muted;
+        border-radius: 10px;
+      }
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        color: $text-dark;
+        font-size: 12px;
+        line-height: 1.35;
+
+        i {
+          flex-shrink: 0;
+          margin-top: 2px;
+          font-size: 12px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    // Inclusions
+    &--included {
+      background: $success-bg;
+
+      h2::before {
+        background: $success;
+      }
+
+      li i {
+        color: $success;
+      }
+    }
+
+    // Exclusions
+    &--excluded {
+      background: $danger-bg;
+
+      h2::before {
+        background: $danger;
+      }
+
+      li i {
+        color: $danger;
+      }
+    }
+  }
+}
+
+// Tablet
+@media (max-width: 768px) {
+  .package-inclusions {
+    gap: 10px;
+
+    &__card {
+      padding: 12px;
+
+      h2 {
+        font-size: 15px;
+      }
+
+      ul li {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+// Mobile
+@media (max-width: 600px) {
+  .package-inclusions {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 14px;
+
+    &__card {
+      height: 175px;
+      padding: 12px;
+
+      h2 {
+        margin-bottom: 8px;
+        font-size: 15px;
+      }
+
+      ul {
+        max-height: 150px;
+        gap: 3px;
+
+        li {
+          font-size: 11px;
+          line-height: 1.35;
+          gap: 6px;
+        }
+      }
+    }
+  }
+}
