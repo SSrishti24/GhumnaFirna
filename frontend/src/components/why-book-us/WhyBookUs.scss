@@ -78,7 +78,7 @@
 // Tablet
 @media (max-width: 768px) {
   .why-book-us {
-    padding: 25px 0;
+    padding: 20px 0;
 
     &__heading {
       font-size: 22px;
@@ -104,7 +104,7 @@
 // Mobile
 @media (max-width: 480px) {
   .why-book-us {
-    padding: 20px 0;
+    padding: 10px 0;
 
     &__container {
       width: 94%;
@@ -112,7 +112,7 @@
 
     &__heading {
       font-size: 19px;
-      margin-bottom: 8px;
+      margin-bottom: 1px;
     }
 
     &__item {

@@ -1,18 +1,10 @@
 
 import { useNavigate } from "react-router-dom";
 
-import darshan from "../../assets/travel/hindu-temple.png";
+import darshan from "../../assets/travel/darshan.png";
 import packages from "../../assets/travel/packages.png";
-import cab from "../../assets/travel/taxi-cab.png";
-import heritage from "../../assets/travel/heritage-temple.png";
-
-import {
-  FaBus,
-  FaUmbrellaBeach,
-  FaTaxi,
-  FaLandmark,
-} from "react-icons/fa";
-
+import cab from "../../assets/travel/cabs.png";
+import heritage from "../../assets/travel/haritages.png";
 import "./TravelCategories.scss";
 
 const categories = [
@@ -73,9 +65,9 @@ function TravelCategories() {
             <div className="travel-categories__title">
               {category.title}
 
-              {category.isNew && (
+              {/* {category.isNew && (
                 <span className="new-badge">NEW</span>
-              )}
+              )} */}
             </div>
           </div>
         ))}

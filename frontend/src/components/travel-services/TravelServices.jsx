@@ -1,36 +1,34 @@
 
 import { useNavigate } from "react-router-dom";
-import { FaPlane, FaHotel, FaTrain } from "react-icons/fa";
-
-import flightImage from "../../assets/travel/aeroplane.png";
-import hotelImage from "../../assets/travel/hotl.png";
-import trainImage from "../../assets/travel/train.png";
+import cabImage from "../../assets/travel/cab.png";
+import hotelImage from "../../assets/travel/hotel.png";
+import holidayImage from "../../assets/travel/holidays.png";
 import "./TravelServices.scss";
 
 const services = [
   {
     id: 1,
-    title: "Flights",
-    subtitle: "",
-    images: flightImage,
+    title: "Cabs",
+    subtitle: "Up to 10% Off*",
+    images: cabImage,
     className: "flights",
-    path: "/flights",
+    path: "/cabs",
   },
   {
     id: 2,
     title: "Hotels",
-    subtitle: "Up to 70% Off*",
+    subtitle: "Up to 20% Off*",
     images: hotelImage,
     className: "hotels",
     path: "/hotels",
   },
   {
     id: 3,
-    title: "Trains",
+    title: "Holidays",
     subtitle: "",
-    images: trainImage,
+    images: holidayImage,
     className: "trains",
-    path: "/trains",
+    path: "/packages",
   },
 ];
 
