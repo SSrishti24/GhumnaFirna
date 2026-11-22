@@ -1,0 +1,45 @@
+@use "../../styles/variables" as *;
+
+.hotel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+
+  &__empty {
+    grid-column: 1 / -1;
+    padding: 65px 20px;
+    text-align: center;
+    border: 1px dashed $hotel-border;
+    border-radius: 12px;
+    background: $white;
+
+    i {
+      color: $hotel-primary;
+      font-size: 38px;
+    }
+
+    h3 {
+      margin: 12px 0 5px;
+      color: $text-dark;
+    }
+
+    p {
+      margin: 0;
+      color: $text-light;
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .hotel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .hotel-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

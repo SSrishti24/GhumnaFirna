@@ -1,0 +1,109 @@
+
+@use "../../styles/variables" as *;
+
+.additional-info {
+  width: 100%;
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid $border;
+  border-radius: 12px;
+  background: $white;
+  box-shadow: $shadow;
+
+  &__heading {
+    position: relative;
+    margin: 0 0 16px;
+    padding-left: 13px;
+    color: $text-dark;
+    font-size: 20px;
+    font-weight: 700;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -16px;
+      width: 4px;
+      height: 29px;
+      background: $primary;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__card {
+    overflow: hidden;
+    border: 1px solid $border;
+    border-radius: 10px;
+    background: $white;
+
+    h3 {
+      margin: 0;
+      padding: 9px 12px;
+      border-bottom: 1px solid $border;
+      background: $primary-light;
+      color: $text-dark;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin: 0;
+      padding: 10px 14px 11px 32px;
+      list-style-type: circle;
+    }
+
+    li {
+      padding-left: 2px;
+      color: $text-dark;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  }
+}
+
+// Mobile
+@media (max-width: 600px) {
+  .additional-info {
+    margin-top: 14px;
+    padding: 12px 10px;
+
+    &__heading {
+      margin-bottom: 12px;
+      font-size: 17px;
+
+      &::before {
+        left: -10px;
+        height: 25px;
+        width: 3px;
+      }
+    }
+
+    &__list {
+      gap: 9px;
+    }
+
+    &__card {
+      h3 {
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+
+      ul {
+        gap: 4px;
+        padding: 9px 11px 10px 27px;
+      }
+
+      li {
+        font-size: 11px;
+      }
+    }
+  }
+}

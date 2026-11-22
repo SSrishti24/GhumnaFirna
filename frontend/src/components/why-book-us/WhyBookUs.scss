@@ -1,0 +1,145 @@
+
+@use "../../styles/variables" as *;
+
+.why-book-us {
+  width: 100%;
+  padding: 30px 0;
+  background: $white;
+
+  &__container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__heading {
+    font-size: 25px;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 12px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 20px 12px;
+    border-bottom: 1px solid $border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__icon {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: $primary;
+    background: $primary-light;
+    border-radius: $radius-md;
+
+    svg {
+      font-size: 27px;
+      stroke-width: 1.8;
+    }
+  }
+
+  &__content {
+    flex: 1;
+
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: $text-dark;
+      margin: 0 0 3px;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      color: $text-light;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+}
+
+// Tablet
+@media (max-width: 768px) {
+  .why-book-us {
+    padding: 25px 0;
+
+    &__heading {
+      font-size: 22px;
+    }
+
+    &__item {
+      gap: 20px;
+      padding: 17px 8px;
+    }
+
+    &__content {
+      h3 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+// Mobile
+@media (max-width: 480px) {
+  .why-book-us {
+    padding: 20px 0;
+
+    &__container {
+      width: 94%;
+    }
+
+    &__heading {
+      font-size: 19px;
+      margin-bottom: 8px;
+    }
+
+    &__item {
+      gap: 16px;
+      padding: 17px 6px;
+    }
+
+    &__icon {
+      flex: 0 0 42px;
+      width: 42px;
+      height: 42px;
+
+      svg {
+        font-size: 24px;
+      }
+    }
+
+    &__content {
+      h3 {
+        font-size: 15px;
+        margin-bottom: 3px;
+      }
+
+      p {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+    }
+  }
+}

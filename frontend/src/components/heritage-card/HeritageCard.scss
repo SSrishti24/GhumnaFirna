@@ -1,0 +1,105 @@
+@use "../../styles/variables" as *;
+
+.heritage-card {
+  overflow: hidden;
+  border-radius: 18px;
+  background: $white;
+  box-shadow: $shadow;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-hover;
+
+    .heritage-card__arrow {
+      transform: translateX(5px);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    background: $bg-light;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+  }
+
+  &:hover &__image img {
+    transform: scale(1.04);
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 120px;
+    padding: 17px 20px;
+  }
+
+  &__info {
+    min-width: 0;
+
+    h3 {
+      margin: 0 0 9px;
+      color: $text-dark;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+      color: $text-light;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    color: $primary;
+    font-size: 21px;
+    transition: transform 0.25s ease;
+  }
+}
+
+// Mobile
+@media (max-width: 600px) {
+  .heritage-card {
+    border-radius: 15px;
+
+    &__image {
+      height: 145px;
+    }
+
+    &__content {
+      min-height: 105px;
+      padding: 13px;
+      gap: 6px;
+    }
+
+    &__info {
+      h3 {
+        margin-bottom: 7px;
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+    }
+
+    &__arrow {
+      font-size: 18px;
+    }
+  }
+}

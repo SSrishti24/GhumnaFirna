@@ -1,0 +1,61 @@
+
+@use "../../styles/variables" as *;
+
+.packages-page {
+  padding: 35px 0;
+  background: $bg;
+
+  &__container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 30px;
+    color: $text-dark;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: $text-light;
+    margin-bottom: 25px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+.mobile-travel-categories {
+  display: none;
+
+  @media (max-width: 768px) {
+    padding-top: 16px;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .packages-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .packages-page {
+    padding: 22px 0;
+
+    h1 {
+      font-size: 22px;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 10px;
+    }
+  }
+}

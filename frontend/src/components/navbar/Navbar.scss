@@ -1,0 +1,271 @@
+
+@use "../../styles/variables" as *;
+
+// ==============================
+// Desktop Navbar
+// ==============================
+
+.navbar {
+  width: 100%;
+  background: $white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid $border;
+  box-shadow: $shadow;
+
+  &__container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px 100px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+
+  // Logo Left
+  &__logo {
+    justify-self: start;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 165px;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  // Navigation Center
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    color: $secondary;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease;
+
+    &:hover,
+    &.active {
+      color: $primary;
+    }
+
+    &.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -9px;
+      width: 100%;
+      height: 2px;
+      background: $primary;
+      border-radius: 5px;
+    }
+  }
+
+  // WhatsApp Right
+  &__whatsapp {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 17px;
+    border-radius: 8px;
+
+    background: #25D366;
+    color: $white;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+
+    svg {
+      font-size: 21px;
+    }
+
+    &:hover {
+      background: #1DA851;
+      transform: translateY(-2px);
+      box-shadow: $shadow-hover;
+    }
+  }
+}
+
+// ==============================
+// Mobile Bottom Navigation
+// ==============================
+
+.mobile-nav {
+  display: none;
+}
+
+// ==============================
+// Tablet Responsive
+// ==============================
+
+@media (max-width: 900px) and (min-width: 769px) {
+  .navbar {
+    &__container {
+      padding: 12px 18px;
+    }
+
+    &__logo img {
+      width: 130px;
+    }
+
+    &__links {
+      gap: 20px;
+    }
+
+    &__link {
+      font-size: 14px;
+    }
+
+    &__whatsapp {
+      padding: 9px 11px;
+      font-size: 12px;
+    }
+  }
+}
+
+// ==============================
+// Mobile Responsive
+// ==============================
+
+@media (max-width: 768px) {
+  .navbar {
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 18px;
+    }
+
+    // Logo Left
+    &__logo {
+      justify-self: auto;
+
+      img {
+        width: 140px;
+      }
+    }
+
+    // Hide Desktop Navigation
+    &__links {
+      display: none;
+    }
+
+    // WhatsApp Right - Icon Only
+    &__whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 0;
+      background: transparent;
+      color: #25D366;
+      box-shadow: none;
+
+      svg {
+        font-size: 29px;
+      }
+
+      span {
+        display: none;
+      }
+
+      &:hover {
+        background: transparent;
+        box-shadow: none;
+        transform: none;
+      }
+    }
+  }
+
+  // Bottom Navigation
+  .mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    background: $white;
+    border-top: 1px solid $border;
+    box-shadow: 0 -4px 15px rgba(15, 23, 42, 0.08);
+
+    z-index: 1100;
+
+    padding-bottom: env(safe-area-inset-bottom);
+
+    &__link {
+      flex: 1;
+      height: 65px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+
+      color: $text-light;
+      text-decoration: none;
+      transition: 0.3s ease;
+
+      &.active {
+        color: $primary;
+      }
+    }
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      font-size: 21px;
+    }
+
+    &__text {
+      font-size: 10px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+  }
+}
+
+// ==============================
+// Small Mobile
+// ==============================
+
+@media (max-width: 360px) {
+  .navbar {
+    &__container {
+      padding: 0px 14px;
+    }
+
+    &__logo img {
+      width: 125px;
+    }
+  }
+
+  .mobile-nav {
+    &__icon {
+      font-size: 19px;
+    }
+
+    &__text {
+      font-size: 9px;
+    }
+  }
+}
