@@ -160,8 +160,8 @@
       grid-column: 1 / -1;
 
       img {
-        width: 160px;
-        height: 60px;
+        width: 120px;
+        height: 50px;
       }
 
       p {
@@ -170,7 +170,7 @@
     }
 
     &__links {
-      gap: 11px;
+      gap: 5px;
 
       h3 {
         font-size: 15px;
@@ -185,8 +185,8 @@
       flex-direction: column;
       justify-content: center;
       text-align: center;
-      padding: 16px 0;
-      gap: 12px;
+      padding: 10px 0;
+      gap: 8px;
 
       p {
         font-size: 11px;
