@@ -22,13 +22,13 @@
 
   &__brand {
     img {
-      width: 155px;
-      height: 48px;
+      width: 175px;
+      height: 60px;
       object-fit: contain;
       background: $white;
       border-radius: $radius-sm;
-      padding: 4px 8px;
-      margin-bottom: 18px;
+      // padding: 4px 8px;
+      margin-bottom: 8px;
     }
 
     p {
@@ -160,8 +160,8 @@
       grid-column: 1 / -1;
 
       img {
-        width: 140px;
-        height: 43px;
+        width: 160px;
+        height: 60px;
       }
 
       p {
