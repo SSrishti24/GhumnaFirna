@@ -21,18 +21,28 @@ import HeritageDetails from "./pages/heritage-details/HeritageDetails";
 import HotelsListing from "./pages/hotels/HotelsListing";
 import HotelDetails from "./pages/hotels/HotelDetails";
 import HotelBooking from "./pages/hotels/HotelBooking";
+import AboutContact from "./pages/about-contact/AboutContact"
+
+
+import "./styles/_global.scss";
 
 function Home() {
   return (
     <>
-      <Navbar />
-      <TravelServices />
-      <TravelCategories />
-      <HeroBanner />
-      <PopularPackages />
-      <PopularDarshan />
-      <WhyBookUs />
-      <Footer />
+      <div className="app-layout">
+        <Navbar />
+
+      <main className="app-content">
+        <TravelServices />
+        <TravelCategories />
+        <HeroBanner />
+        <PopularPackages />
+        <PopularDarshan />
+        <WhyBookUs />
+      </main>
+
+        <Footer />
+      </div>
     </>
   );
 }
@@ -55,6 +65,8 @@ function App() {
         <Route path="/hotels" element={<HotelsListing />} />
         <Route path="/hotels/:id" element={<HotelDetails />} />
         <Route path="/hotels/:id/booking" element={<HotelBooking />} />
+        <Route path="/about-us" element={<AboutContact />} />
+        
     </Routes>
   
     </>
