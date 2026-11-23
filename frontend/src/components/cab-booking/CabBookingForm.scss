@@ -112,7 +112,7 @@
     border: none;
     background: transparent;
     color: $primary;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     cursor: pointer;
   }
@@ -193,17 +193,17 @@
 
       input,
       select {
-        font-size: 16px;
+        font-size: 12px;
       }
 
       input[type="datetime-local"] {
-        font-size: 14px;
+        font-size: 12px;
       }
     }
 
     &__submit {
       padding: 8px;
-      font-size: 17px;
+      font-size: 15px;
     }
   }
 }

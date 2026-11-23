@@ -23,7 +23,7 @@ function Heritage() {
             <h1>Explore Heritage Destinations</h1>
             <p>
               Discover India's rich history, royal architecture
-              and timeless cultural heritage.
+              and heritage.
             </p>
           </div>
 

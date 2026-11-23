@@ -14,13 +14,15 @@
   h1 {
     font-size: 30px;
     color: $text-dark;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
+    text-align: center;
   }
 
   p {
     color: $text-light;
     // margin-bottom: 25px;
     font-size: 13px;
+    text-align: center;
   }
 
   &__grid {
@@ -51,7 +53,12 @@
     padding: 22px 0;
 
     h1 {
-      font-size: 22px;
+      font-size: 20px;
+    }
+
+    p {
+      color: $text-light;
+      font-size: 12px;
     }
 
     &__grid {

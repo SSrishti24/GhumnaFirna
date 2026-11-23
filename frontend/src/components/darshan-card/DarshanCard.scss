@@ -140,7 +140,7 @@
 // Mobile
 @media (max-width: 480px) {
   .darshan-card {
-    height: 190px;
+    height: 200px;
     border-radius: 9px;
 
     &__overlay {
@@ -179,8 +179,11 @@
     &__book {
       min-height: 24px;
       padding: 6px 10px;
-      font-size: 11px;
+      font-size: 9px;
       gap: 3px;
+        i {
+          font-size: 8px;
+        }
     }
   }
 }

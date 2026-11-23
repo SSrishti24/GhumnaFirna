@@ -49,9 +49,9 @@ function Footer() {
           <div className="footer__links footer__destinations" >
             <h3>Popular Destinations</h3>
 
-            <a href="#himachal">Himachal</a>
-            <a href="#kashmir">Kashmir</a>
-            <a href="#rajasthan">Rajasthan</a>
+            <a href="#himachal">Mahakaleshwar</a>
+            <a href="#kashmir">Omkaleshwar</a>
+            <a href="#rajasthan">Udaipur</a>
             <a href="#more">Explore More</a>
           </div>
 
@@ -59,10 +59,10 @@ function Footer() {
           <div className="footer__links">
             <h3>Our Services</h3>
 
-            <a href="#flights">Flights</a>
-            <a href="#hotels">Hotels & Stay</a>
-            <a href="#cabs">Cab Services</a>
-            <a href="#holidays">Holiday Packages</a>
+            <Link to="/hotels">Hotels & Stay</Link>
+            <Link to="/cabs">Cab Services</Link>
+            <Link to="/packages">Holiday Packages</Link>
+            <Link to="/heritages">Heritages</Link>
           </div>
 
         </div>

@@ -13,16 +13,18 @@
   }
 
   &__heading {
-    margin: 0 0 6px;
+    margin: 0 0 2px;
     color: $text-dark;
     font-size: 24px;
     font-weight: 700;
+    text-align: center;
   }
 
   &__description {
     margin: 0 0 8px;
     color: $text-light;
     font-size: 14px;
+    text-align: center;
   }
 
   &__grid {
@@ -78,11 +80,11 @@
     }
 
     &__heading {
-      font-size: 19px;
+      font-size:20px;
     }
 
     &__description {
-      font-size: 11px;
+      font-size: 12px;
       margin-bottom: 12px;
     }
   }
