@@ -37,7 +37,7 @@ function CabResultCard({ cab, searchData }) {
         {/* Cab Details */}
         <div className="cab-result-card__details">
 
-          <div className="cab-result-card__detail">
+          {/* <div className="cab-result-card__detail">
             <div className="cab-result-card__label">
               <i className="bi bi-speedometer2"></i>
               <span>Km Charges</span> 
@@ -46,7 +46,7 @@ function CabResultCard({ cab, searchData }) {
             <p>
               <strong>₹{cab.rate}/KM</strong> after {cab.includedKm} KM
             </p>
-          </div>
+          </div> */}
 
           <div className="cab-result-card__detail">
             <div className="cab-result-card__label">

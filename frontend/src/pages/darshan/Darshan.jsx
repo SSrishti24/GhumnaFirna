@@ -25,8 +25,7 @@ function Darshan() {
           </h1>
 
           <p className="darshan-page__description">
-            Discover spiritual destinations and plan your
-            memorable darshan journey.
+            Discover spiritual destinations and plan your journey.
           </p>
 
           <div className="darshan-page__grid">

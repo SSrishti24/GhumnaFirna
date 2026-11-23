@@ -5,6 +5,7 @@ import {
   FiPackage,
   FiTruck,
   FiMapPin,
+  FiBriefcase,
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -17,7 +18,7 @@ function Navbar() {
     { name: "Packages", path: "/packages", icon: <FiPackage /> },
     { name: "Cabs", path: "/cabs", icon: <FiTruck /> },
     { name: "Darshan", path: "/darshan", icon: <FiMapPin /> },
-    // { name: "Stay", path: "/stay", icon: <FiBriefcase /> },
+    { name: "Hotels", path: "/hotels", icon: <FiBriefcase /> },
   ];
 
   return (

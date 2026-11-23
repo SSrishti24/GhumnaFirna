@@ -20,7 +20,7 @@ function Cabs() {
         <div className="cabs-page__heading">
           <h1>Book Your Ride</h1>
           <p>
-            Comfortable rides, flexible travel options and easy cab booking.
+            Flexible travel options and easy cab booking.
           </p>
         </div>
 
