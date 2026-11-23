@@ -2,6 +2,7 @@
 @use "../../styles/variables" as *;
 
 .darshan-card {
+  border: 1px solid rgb(180, 180, 180);
   position: relative;
   width: 100%;
   height: 285px;
@@ -24,25 +25,18 @@
     inset: 0;
     display: flex;
     align-items: flex-end;
-    padding: 7px;
-    background: linear-gradient(
-      to top,
-      rgba(15, 23, 42, 0.5),
-      transparent 55%
-    );
   }
 
   &__info {
     width: 100%;
     padding: 10px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.86);
+    background: rgba(255, 255, 255);
     backdrop-filter: blur(4px);
   }
 
   h3 {
     margin: 0 0 4px;
-    color: $primary-dark;
+    color: rgb(234 98 1);
     font-size: 18px;
     font-weight: 700;
     line-height: 1.3;
@@ -53,13 +47,13 @@
     align-items: flex-start;
     gap: 5px;
     margin: 0;
-    color: $text;
+    color: $text-light;
     font-size: 11px;
     line-height: 1.3;
 
     i {
       flex-shrink: 0;
-      color: $primary;
+      color: $text-light;
       font-size: 11px;
     }
   }
@@ -81,7 +75,7 @@
 
     strong {
       color: $text-dark;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 800;
     }
 
@@ -101,15 +95,15 @@
     padding: 6px 10px;
     border: none;
     border-radius: 25px;
-    background: $primary;
+    background: rgb(234 98 1);
     color: $white;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
 
     &:hover {
-      background: $primary-dark;
+      background: rgb(173, 72, 0);;
     }
 
     i {
@@ -140,16 +134,15 @@
 // Mobile
 @media (max-width: 480px) {
   .darshan-card {
-    height: 200px;
+    height: 250px;
     border-radius: 9px;
 
-    &__overlay {
-      padding: 4px;
-    }
+    // &__overlay {
+    //   padding: 4px;
+    // }
 
     &__info {
       padding: 6px;
-      border-radius: 7px;
     }
 
     h3 {

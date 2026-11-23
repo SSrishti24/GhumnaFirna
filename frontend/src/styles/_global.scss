@@ -11,12 +11,43 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
 body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: $font-primary;
   background: $bg;
   color: $text;
   font-size: $fs-base;
   line-height: 1.6;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.app-layout {
+  flex: 1;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {

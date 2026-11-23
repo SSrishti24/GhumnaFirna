@@ -41,8 +41,8 @@ function Footer() {
 
             <Link to="/">Home</Link>
             <Link to="/packages">All Packages</Link>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact Us</a>
+            <Link to="/about-us#about">About Us</Link>
+            <Link to="/about-us#contact">Contact Us</Link>
           </div>
 
           {/* Destinations */}

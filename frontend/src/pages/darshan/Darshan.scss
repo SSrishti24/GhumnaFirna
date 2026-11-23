@@ -28,7 +28,6 @@
   }
 
   &__grid {
-    padding: 10px;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
@@ -49,8 +48,8 @@
 @media (max-width: 992px) {
   .darshan-page {
     &__container {
-      padding-left: 18px;
-      padding-right: 18px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
     &__grid {
@@ -75,16 +74,16 @@
 @media (max-width: 480px) {
   .darshan-page {
     &__container {
-      padding-left: 12px;
-      padding-right: 12px;
+      padding-left: 18px;
+      padding-right: 18px;
     }
 
     &__heading {
-      font-size:20px;
+      font-size: 23px;
     }
 
     &__description {
-      font-size: 12px;
+      font-size: 13px;
       margin-bottom: 12px;
     }
   }

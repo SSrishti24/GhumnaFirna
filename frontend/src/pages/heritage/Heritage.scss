@@ -8,6 +8,9 @@
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    padding-left: 8px;
+    padding-right: 8px;
+
   }
 
   &__heading {
@@ -30,7 +33,6 @@
   }
 
   &__grid {
-    padding:10px;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
