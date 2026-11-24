@@ -1,14 +1,69 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./CabResultCard.scss";
 
 function CabResultCard({ cab, searchData }) {
   const [showOptions, setShowOptions] = useState(false);
+  const navigate = useNavigate();
 
   const handleBooking = () => {
-    console.log("Selected Cab:", cab);
-    console.log("Journey Details:", searchData);
+    const journeyType =
+      searchData?.tripType === "hourly"
+        ? "Hourly Rental"
+        : searchData?.tripType === "outstation"
+        ? "Outstation"
+        : "Airport Transfer";
 
-    // Next step: navigate to booking details page.
+    const enquiryDescription = `
+      Cab Booking Enquiry
+
+      Cab Name: ${cab.name}
+      Cab Category: ${cab.category}
+      Fuel Type: ${cab.fuel}
+      Seats: ${cab.seats}
+      Cab Price: ₹${cab.price.toLocaleString("en-IN")}
+      
+      Journey Type: ${journeyType}
+      Pickup Location: ${searchData?.pickup || "Not specified"}
+      ${searchData?.tripType !== "hourly"
+        ? `Drop Location: ${searchData?.drop || "Not specified"}`
+        : ""}
+
+      Pickup Date & Time: ${
+        searchData?.pickupDateTime
+          ? new Date(searchData.pickupDateTime).toLocaleString("en-IN", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+              hour: "numeric",
+              minute: "2-digit",
+              second: "2-digit",
+              hour12: true,
+            })
+          : "Not specified"
+      }
+      ${searchData?.returnTrip && searchData?.returnDateTime
+        ? `Return Date & Time: ${new Date(searchData.returnDateTime).toLocaleString("en-IN", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true,
+          })}`
+        : ""}
+      ${searchData?.tripType === "hourly"
+        ? `Rental Duration: ${searchData?.hours || "4"} Hours`
+        : ""}
+    `.trim();
+
+    navigate("/about-us#contact-form", {
+      state: {
+        category: "Cab",
+        description: enquiryDescription,
+      },
+    });
   };
 
   return (
@@ -36,17 +91,6 @@ function CabResultCard({ cab, searchData }) {
 
         {/* Cab Details */}
         <div className="cab-result-card__details">
-
-          {/* <div className="cab-result-card__detail">
-            <div className="cab-result-card__label">
-              <i className="bi bi-speedometer2"></i>
-              <span>Km Charges</span> 
-            </div>
-
-            <p>
-              <strong>₹{cab.rate}/KM</strong> after {cab.includedKm} KM
-            </p>
-          </div> */}
 
           <div className="cab-result-card__detail">
             <div className="cab-result-card__label">

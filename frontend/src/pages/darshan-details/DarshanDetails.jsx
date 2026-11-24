@@ -37,15 +37,26 @@ function DarshanDetails() {
   const totalPersons =
     Number(formData.adults) + Number(formData.children);
 
+  const selectedPrice = darshan.cabPrices?.[formData.cab] || 0;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     let updatedValue = value;
 
-    if (name === "adults") {
-      updatedValue = Math.min(30, Math.max(1, Number(value)));
-    } else if (name === "children") {
-      updatedValue = Math.min(30, Math.max(0, Number(value)));
+    if (name === "adults" || name === "children") {
+      // Allow empty input while typing
+      if (value === "") {
+        updatedValue = "";
+      } else {
+        const numberValue = Number(value);
+
+        if (name === "adults") {
+          updatedValue = Math.min(30, Math.max(1, numberValue));
+        } else {
+          updatedValue = Math.min(30, Math.max(0, numberValue));
+        }
+      }
     }
 
     setFormData((prev) => ({
@@ -64,14 +75,27 @@ function DarshanDetails() {
       adults: Number(formData.adults),
       children: Number(formData.children),
       totalPersons,
+      totalAmount: selectedPrice,
     };
 
-    navigate("/inquiry", {
+    const enquiryDescription = `
+      Darshan Package: ${title}
+
+      Package Price: ₹${selectedPrice.toLocaleString("en-IN")}
+
+      Travel Date: ${formData.date}
+      Time Slot: ${formData.time}
+
+      Cab Requirement: ${formData.cab}
+      Adults: ${bookingDetails.adults}
+      Children: ${bookingDetails.children}
+      Total Persons: ${totalPersons}
+        `.trim();
+
+    navigate("/about-us#contact-form", {
       state: {
-        selectedDarshan: darshan,
-        bookingDetails,
-        totalAmount: darshan.price,
-        totalPersons,
+        category: "Darshan",
+        description: enquiryDescription,
       },
     });
   };
@@ -126,13 +150,6 @@ function DarshanDetails() {
 
                 <div className="darshan-booking__header">
                   <span>{title}</span>
-
-                  <div className="darshan-booking__price">
-                    <small>Starting from</small>
-                    <strong>
-                      ₹{darshan.price.toLocaleString("en-IN")}
-                    </strong>
-                  </div>
                 </div>
 
                 <form
@@ -225,51 +242,19 @@ function DarshanDetails() {
                       >
                         <option value="">Select Cab</option>
                         <option value="4 Seater">4 Seater</option>
-                        <option value="6 Seater">6 Seater</option>
                         <option value="7 Seater">7 Seater</option>
-                        <option value="12 Seater">12 Seater</option>
-                        <option value="Not Required">Not Required</option>
+                        <option value="10 Seater">10 Seater</option>
                       </select>
                     </div>
-
-                    <div className="darshan-booking__field">
-                      <label>Do You Need Stay?</label>
-
-                      <div className="darshan-booking__stay-options">
-                        <label>
-                          <input
-                            type="radio"
-                            name="stay"
-                            value="Yes"
-                            checked={formData.stay === "Yes"}
-                            onChange={handleChange}
-                            required
-                          />
-                          Yes
-                        </label>
-
-                        <label>
-                          <input
-                            type="radio"
-                            name="stay"
-                            value="No"
-                            checked={formData.stay === "No"}
-                            onChange={handleChange}
-                          />
-                          No
-                        </label>
-                      </div>
-                    </div>
                   </div>
-
                   <button
                     type="submit"
                     className="darshan-booking__submit"
+                    disabled={!formData.cab}
                   >
-                    Book Now
+                    Book Now - ₹{selectedPrice.toLocaleString("en-IN")}
                     <i className="bi bi-arrow-right"></i>
                   </button>
-
                 </form>
               </div>
             </aside>

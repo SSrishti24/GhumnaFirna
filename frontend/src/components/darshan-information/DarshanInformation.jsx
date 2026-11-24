@@ -5,9 +5,9 @@ function DarshanInformation({ darshan }) {
   const title = darshan.title || darshan.name;
 
   const specialityIcons = [
-    "bi-geo-alt-fill",
-    "bi-person-fill",
-    "bi-shield-fill",
+    "bi-arrow-right-circle-fill",
+    "bi-arrow-right-circle-fill",
+    "bi-arrow-right-circle-fill",
   ];
 
   const includeIcons = [
@@ -25,7 +25,7 @@ function DarshanInformation({ darshan }) {
 
         <p>
           {darshan.description ||
-            `Explore ${title} and enjoy a memorable darshan experience.`}
+            `Explore ${title} and immerse yourself in a memorable journey filled with divine blessings, beautiful surroundings, and a peaceful darshan experience.`}
         </p>
       </div>
 
@@ -45,7 +45,7 @@ function DarshanInformation({ darshan }) {
           {/* Specialities */}
           {darshan.specialities?.length > 0 && (
             <div className="darshan-information__group">
-              <h3>Our Specialities</h3>
+              <h3>Highlights</h3>
 
               <ul>
                 {darshan.specialities.map((item, index) => (

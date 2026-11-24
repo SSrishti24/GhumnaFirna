@@ -33,7 +33,13 @@ function CabBookingForm() {
     }));
   };
 
-    const handleSearch = (e) => {
+    const minDateTime = new Date(
+      Date.now() - new Date().getTimezoneOffset() * 60000
+    )
+      .toISOString()
+      .slice(0, 16);
+
+  const handleSearch = (e) => {
     e.preventDefault();
 
     if (!formData.pickup || !formData.pickupDateTime) {
@@ -60,7 +66,7 @@ function CabBookingForm() {
     navigate("/cab-results", {
         state: searchData,
     });
-    };
+  };
 
   return (
     <section className="cab-booking">
@@ -154,6 +160,7 @@ function CabBookingForm() {
                 id="pickupDateTime"
                 type="datetime-local"
                 name="pickupDateTime"
+                min={minDateTime}
                 value={formData.pickupDateTime}
                 onChange={updateField}
                 required
@@ -228,6 +235,7 @@ function CabBookingForm() {
                       <input
                         id="returnDateTime"
                         type="datetime-local"
+                        min={formData.pickupDateTime || minDateTime}
                         name="returnDateTime"
                         value={formData.returnDateTime}
                         onChange={updateField}

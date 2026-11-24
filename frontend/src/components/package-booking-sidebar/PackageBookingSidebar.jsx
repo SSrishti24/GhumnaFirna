@@ -65,7 +65,7 @@ function PackageBookingSidebar({ packageData }) {
           <button
             type="button"
             className="package-sidebar__enquire-btn"
-            onClick={handleBooking}
+             onClick={() => navigate("/about-us#contact-form")}
           >
             ENQUIRE NOW
           </button>
@@ -142,7 +142,7 @@ function PackageBookingSidebar({ packageData }) {
       <button
         type="button"
         className="package-sidebar__floating-enquiry"
-        onClick={handleBooking}
+        onClick={() => navigate("/about-us#contact-form")}
       >
         <i className="bi bi-envelope-fill"></i>
         <span>Enquire<br />Now</span>

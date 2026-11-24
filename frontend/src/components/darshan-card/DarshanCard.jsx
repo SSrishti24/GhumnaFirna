@@ -35,10 +35,10 @@ function DarshanCard({ darshan }) {
 
           <div className="darshan-card__footer">
             <div className="darshan-card__price">
+              <span>Starting From</span>
               <strong>
                 ₹{darshan.price?.toLocaleString("en-IN")}
               </strong>
-              <span>Per Package</span>
             </div>
 
             <button

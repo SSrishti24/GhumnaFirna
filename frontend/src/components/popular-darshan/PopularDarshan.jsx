@@ -26,7 +26,7 @@ function PopularDarshan() {
         </div>
 
         <div className="popular-darshan__grid">
-          {darshanData.slice(0, 3).map((item) => (
+          {darshanData.slice(0, 4).map((item) => (
             <DarshanCard
               key={item.id}
               darshan={item}
