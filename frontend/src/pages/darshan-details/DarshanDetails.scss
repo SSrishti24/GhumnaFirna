@@ -22,7 +22,7 @@
     font-size: 13px;
 
     a {
-      color: $primary;
+      color: $hotel-primary;
       text-decoration: none;
 
       &:hover {
@@ -107,11 +107,11 @@
     justify-content: space-between;
     gap: 12px;
     padding: 13px 16px;
-    background: $primary-light;
+    background: $hotel-primary-light;
 
     > span {
-      color: $text-dark;
-      font-size: 15px;
+      color: $hotel-primary;
+      font-size: 16px;
       font-weight: 700;
     }
   }
@@ -121,7 +121,7 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 2px;
-    color: $text-dark;
+    color: $hotel-primary;
     white-space: nowrap;
 
     small {
@@ -183,7 +183,7 @@
       transition: border-color 0.2s ease;
 
       &:focus {
-        border-color: $primary;
+        border-color: $hotel-primary;
       }
     }
   }
@@ -193,10 +193,10 @@
     height: 38px;
     align-items: center;
     padding: 7px 10px;
-    border: 1px solid $primary-light;
+    border: 1px solid $hotel-primary;
     border-radius: 7px;
-    background: $bg-light;
-    color: $primary;
+    background: $hotel-primary-light;
+    color: $hotel-primary;
     font-size: 14px;
     font-weight: 700;
   }
@@ -218,7 +218,7 @@
 
     input {
       margin: 0;
-      accent-color: $primary;
+      accent-color: $hotel-primary;
     }
   }
 
@@ -232,7 +232,7 @@
     margin-top: auto;
     border: none;
     border-radius: 25px;
-    background: $primary;
+    background: $hotel-primary;
     color: $white;
     font-size: 13px;
     font-weight: 700;
@@ -240,7 +240,7 @@
     transition: background 0.25s ease;
 
     &:hover {
-      background: $primary-dark;
+      background: $hotel-primary-dark;
     }
 
     &:disabled {
@@ -279,7 +279,7 @@
 // Mobile Responsive
 @media (max-width: 600px) {
   .darshan-details {
-    padding: 15px 0 28px;
+    padding: 15px 0 18px;
 
     &__container {
       padding: 0 12px;

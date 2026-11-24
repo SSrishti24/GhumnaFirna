@@ -17,6 +17,8 @@ import "./AboutContact.scss";
 
 function AboutContact() {
   const location = useLocation();
+  const enquiryCategory = location.state?.category || "";
+  const enquiryDescription = location.state?.description || "";
 
   // Scroll to the requested section when navigating with a URL hash
   useEffect(() => {
@@ -172,27 +174,57 @@ function AboutContact() {
           <div className="contact-form-wrapper">
             <h3>Send Us a Message</h3>
             <p>Fill out the form and we'll get back to you.</p>
+            <form className="contact-form" id="contact-form">
 
-            <form className="contact-form">
               <div className="form-row">
-                <input type="text" placeholder="Full Name" required />
-                <input type="tel" placeholder="Phone Number" required />
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  name="name"
+                  required
+                />
+
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  name="phone"
+                  maxLength={10}
+                  pattern="[0-9]{10}"
+                  required
+                />
               </div>
 
               <div className="form-row">
-                <input type="email" placeholder="Email Address" required />
-                <input type="text" placeholder="Subject" required />
+                <select
+                  name="category"
+                  defaultValue={enquiryCategory}
+                  required
+                >
+                  <option value="" disabled>
+                    Select Category
+                  </option>
+
+                  <option value="Darshan">Darshan</option>
+                  <option value="Cab">Cab</option>
+                  <option value="Hotel">Hotel</option>
+                  <option value="Package">Package</option>
+                  <option value="Heritage">Heritage</option>
+                </select>
               </div>
 
               <textarea
+                name="description"
                 placeholder="Tell us how we can help you..."
-                rows="5"
+                rows="7"
+                defaultValue={enquiryDescription}
+                readOnly={Boolean(enquiryDescription)}
                 required
               />
 
               <button type="submit" className="primary-btn">
                 Send Message <FaPaperPlane />
               </button>
+
             </form>
           </div>
 
