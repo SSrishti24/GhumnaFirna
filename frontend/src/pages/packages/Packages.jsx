@@ -11,6 +11,35 @@ import "./Packages.scss";
 function Packages() {
   return (
     <>
+      <title>Tour Packages in India | Holiday Trips - GhumnaFirna</title>
+
+      <meta
+        name="description"
+        content="Explore exciting tour packages across India with GhumnaFirna. Discover holiday destinations, customized trips, comfortable stays and memorable travel experiences."
+      />
+
+      <link
+        rel="canonical"
+        href="https://ghumnafirna.com/packages"
+      />
+
+      <meta
+        property="og:title"
+        content="Tour Packages in India | GhumnaFirna"
+      />
+
+      <meta
+        property="og:description"
+        content="Explore amazing holiday packages and plan your next trip with GhumnaFirna."
+      />
+
+      <meta
+        property="og:url"
+        content="https://ghumnafirna.com/packages"
+      />
+
+      <meta property="og:type" content="website" />
+
       <Navbar />
 
       <div className="mobile-travel-categories">

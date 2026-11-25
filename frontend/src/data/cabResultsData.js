@@ -18,8 +18,8 @@ export const cabResultsData = [
     fuel: "CNG",
     cancellation: "Free before 6 hours from the journey time.",
     advance: 25,
-    price: "9/Km",
-    originalPrice: 10,
+    price: "10/Km",
+    originalPrice: 12,
     tollIncluded: true,
     taxIncluded: true,
     options: [
@@ -41,7 +41,7 @@ export const cabResultsData = [
     cancellation: "Free before 6 hours from the journey time.",
     advance: 25,
     price: "10/Km",
-    originalPrice: 11,
+    originalPrice: 12,
     tollIncluded: true,
     taxIncluded: true,
     options: [
@@ -62,7 +62,7 @@ export const cabResultsData = [
     fuel: "CNG",
     cancellation: "Free before 6 hours from the journey time.",
     advance: 25,
-    price: "9.50/Km",
+    price: "10/Km",
     originalPrice: 11,
     tollIncluded: true,
     taxIncluded: true,
