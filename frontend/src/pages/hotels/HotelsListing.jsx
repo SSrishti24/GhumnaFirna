@@ -111,6 +111,36 @@ function HotelsListing() {
 
   return (
     <>
+
+      <title>Hotels & Resorts in India | GhumnaFirna</title>
+
+      <meta
+        name="description"
+        content="Explore and book hotels and resorts across India with GhumnaFirna. Find comfortable stays at the best destinations."
+      />
+
+      <link
+        rel="canonical"
+        href="https://ghumnafirna.com/hotels"
+      />
+
+      <meta
+        property="og:title"
+        content="Hotels & Resorts in India | GhumnaFirna"
+      />
+
+      <meta
+        property="og:description"
+        content="Explore and book hotels and resorts across India."
+      />
+
+      <meta
+        property="og:url"
+        content="https://ghumnafirna.com/hotels"
+      />
+
+      <meta property="og:type" content="website" />
+
       <Navbar />
 
       <div className="mobile-travel-categories">
@@ -156,7 +186,7 @@ function HotelsListing() {
 
               <div className="hotels-listing__header">
                 <div>
-                  <h1>Mount Hotels & Resorts in India</h1>
+                  <h1>Explore Hotels & Resorts </h1>
 
                   <p>
                     {filteredHotels.length} properties found across

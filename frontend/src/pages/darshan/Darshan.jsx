@@ -11,6 +11,35 @@ import "./Darshan.scss";
 function Darshan() {
   return (
     <>
+      <title>Temple Darshan Packages in India | GhumnaFirna</title>
+
+      <meta
+        name="description"
+        content="Explore temple darshan packages and spiritual tours across India with GhumnaFirna. Plan your temple visits, local sightseeing and comfortable travel."
+      />
+
+      <link
+        rel="canonical"
+        href="https://ghumnafirna.com/darshan"
+      />
+
+      <meta
+        property="og:title"
+        content="Temple Darshan Packages | GhumnaFirna"
+      />
+
+      <meta
+        property="og:description"
+        content="Discover spiritual destinations and plan memorable temple darshan trips with GhumnaFirna."
+      />
+
+      <meta
+        property="og:url"
+        content="https://ghumnafirna.com/darshan"
+      />
+
+      <meta property="og:type" content="website" />
+      
       <Navbar />
 
       <div className="mobile-travel-categories">

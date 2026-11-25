@@ -174,7 +174,7 @@ function CabBookingForm() {
               <i className="bi bi-clock"></i>
 
               <div className="cab-booking__field-content">
-                <label htmlFor="hours">Rental Duration</label>
+                <label htmlFor="hours">Duration</label>
 
                 <select
                   id="hours"

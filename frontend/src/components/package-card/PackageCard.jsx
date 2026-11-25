@@ -37,7 +37,7 @@ function PackageCard({ packageData }) {
 
         <div className="package-card__price">
           ₹{packageData.price.toLocaleString("en-IN")}*
-          <span>/ per person</span>
+          <span>/ person</span>
         </div>
       </div>
     </div>

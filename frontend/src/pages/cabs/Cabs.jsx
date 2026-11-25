@@ -10,6 +10,35 @@ import "./Cabs.scss";
 function Cabs() {
   return (
     <>
+      <title>Cab Booking & Taxi Services in India | GhumnaFirna</title>
+
+      <meta
+        name="description"
+        content="Book comfortable cabs and taxi services with GhumnaFirna. Explore convenient travel options for local sightseeing, outstation trips and holiday journeys."
+      />
+
+      <link
+        rel="canonical"
+        href="https://ghumnafirna.com/cabs"
+      />
+
+      <meta
+        property="og:title"
+        content="Cab Booking & Taxi Services | GhumnaFirna"
+      />
+
+      <meta
+        property="og:description"
+        content="Find convenient cab and taxi options for your next journey with GhumnaFirna."
+      />
+
+      <meta
+        property="og:url"
+        content="https://ghumnafirna.com/cabs"
+      />
+
+      <meta property="og:type" content="website" />
+
       <Navbar />
 
       <div className="mobile-travel-categories">
