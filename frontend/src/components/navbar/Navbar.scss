@@ -31,7 +31,7 @@
     align-items: center;
 
     img {
-      width: 140px;
+      width: 185px;
       height: auto;
       object-fit: contain;
     }
@@ -155,7 +155,7 @@
       justify-self: auto;
 
       img {
-        width: 110px;
+        width: 135px;
       }
     }
 
@@ -254,9 +254,9 @@
       padding: 0px 14px;
     }
 
-    &__logo img {
-      width: 105px;
-    }
+    // &__logo img {
+    //   width: 105px;
+    // }
   }
 
   .mobile-nav {

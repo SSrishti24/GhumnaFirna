@@ -10,7 +10,8 @@ import {
 import { FaWhatsapp } from "react-icons/fa";
 
 import "./Navbar.scss";
-import logo from "../../assets/logo1.png";
+import logo from "../../assets/logo2.png";
+
 
 function Navbar() {
   const navLinks = [
