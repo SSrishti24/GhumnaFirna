@@ -19,6 +19,21 @@ export const heritageData = [
     location: "Mandu, Madhya Pradesh",
     stayPlan: "1N Mandu",
 
+    // Person-wise pricing (per person)
+    pricing: {
+      perPerson: [
+        { people: 1, price: 10000 },
+        { people: 2, price: 6000 },
+        { people: 3, price: 5000 },
+        { people: 4, price: 4000 },
+        { people: 5, price: 3500 },
+        { people: 6, price: 3300 },
+        { people: 7, price: 3000 },
+      ],
+
+      group: 2800,
+    },
+
     description: "Historic forts, palaces and beautiful architecture",
 
     overview:

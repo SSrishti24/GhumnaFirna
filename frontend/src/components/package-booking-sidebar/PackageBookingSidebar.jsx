@@ -1,17 +1,113 @@
 
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./PackageBookingSidebar.scss";
 
 function PackageBookingSidebar({ packageData }) {
   const navigate = useNavigate();
+  const [selectedOption, setSelectedOption] = useState("1");
+  const [customTravelers, setCustomTravelers] = useState("8");
 
   if (!packageData) return null;
 
+  const pricing = packageData?.pricing || {};
+
+  const currentPrice =
+    selectedOption === "group"
+      ? Number(pricing.group || 0)
+      : Number(
+          pricing.perPerson?.find(
+            (item) => item.people === Number(selectedOption)
+          )?.price ?? packageData?.price ?? 0
+        );
+
+  const travelerCount =
+    selectedOption === "group"
+      ? Math.min(10, Math.max(8, Number(customTravelers) || 8))
+      : Number(selectedOption);
+
+  const totalAmount = currentPrice * travelerCount;
+
+  const selectedLabel =
+    selectedOption === "group"
+      ? `Group (${travelerCount} Travelers)`
+      : `${selectedOption} ${
+        travelerCount === 1 ? "Person" : "Persons"
+      }`;
+
+  const formatPrice = (price) =>
+    Number(price || 0).toLocaleString("en-IN");
+
   const handleBooking = () => {
-    navigate("/inquiry", {
+    const formatDetails = (value) => {
+      if (value === null || value === undefined) return "";
+
+      if (Array.isArray(value)) {
+        return value
+          .map((item, index) => {
+            if (typeof item === "object" && item !== null) {
+              return `${index + 1}. ${formatDetails(item)}`;
+            }
+            return `${index + 1}. ${item}`;
+          })
+          .join("\n");
+      }
+
+      if (typeof value === "object") {
+        return Object.entries(value)
+          .map(([key, val]) => {
+            const formattedKey = key
+              .replace(/([A-Z])/g, " $1")
+              .replace(/^./, (char) => char.toUpperCase());
+
+            return `${formattedKey}: ${formatDetails(val)}`;
+          })
+          .join("\n");
+      }
+
+      return String(value);
+    };
+
+    const packageDescription = `
+      PACKAGE BOOKING ENQUIRY
+
+      PACKAGE DETAILS
+      Package Name: ${packageData.title}
+      Duration: ${packageData.duration}
+      Location: ${packageData.location}
+      Stay Plan: ${packageData.stayPlan || "Not specified"}
+
+      TRAVEL DETAILS
+      Travelers: ${selectedLabel}
+      Price Per Person: ₹${formatPrice(currentPrice)}
+      Total Travelers: ${travelerCount}
+      Total Package Amount: ₹${formatPrice(totalAmount)}
+    `.trim();
+
+    const updatedPackage = {
+      ...packageData,
+      price: currentPrice,
+      totalAmount,
+      selectedPricing: {
+        type: selectedOption,
+        label: selectedLabel,
+        travelers: travelerCount,
+        perPersonPrice: currentPrice,
+        totalAmount,
+      },
+    };
+
+    navigate("/about-us#contact-form", {
       state: {
-        selectedPackages: [packageData],
-        totalAmount: packageData.price,
+        category: "Package",
+        description: packageDescription,
+
+        selectedPackage: updatedPackage,
+        selectedPackages: [updatedPackage],
+
+        bookingDetails: updatedPackage.selectedPricing,
+
+        totalAmount,
         bookingAmount: 999,
       },
     });
@@ -35,15 +131,61 @@ function PackageBookingSidebar({ packageData }) {
       {/* Desktop Price and Booking Card */}
       <div className="package-sidebar__price-card">
         <div className="package-sidebar__price-header">
-          <span className="package-sidebar__starting">
-            Starting from
-          </span>
 
+          {/* Person Filter */}
+          <div className="package-sidebar__person-filter">
+            <label htmlFor="package-person-count">
+              Select Travelers
+            </label>
+
+            <select
+              id="package-person-count"
+              value={selectedOption}
+              onChange={(e) => setSelectedOption(e.target.value)}
+            >
+              {pricing.perPerson?.map((item) => (
+                <option key={item.people} value={String(item.people)}>
+                  {item.people} {item.people === 1 ? "Person" : "Persons"}
+                </option>
+              ))}
+
+              {pricing.group !== undefined && (
+                <option value="group">Group</option>
+              )}
+
+            </select>
+
+            {/* Additional Travelers Field */}
+            {(selectedOption === "group") && (
+              <div className="package-sidebar__custom-travelers">
+                <label htmlFor="custom-travelers">
+                  Number of Travelers
+                </label>
+
+                <input
+                  id="custom-travelers"
+                  type="number"
+                  min="1"
+                  step="1"
+                  value={customTravelers}
+                  onChange={(e) => setCustomTravelers(e.target.value)}
+                  placeholder="Enter travelers"
+                />
+              </div>
+            )}
+          </div>
+
+          {/* Dynamic Price */}
           <div className="package-sidebar__price">
-            <strong>
-              ₹{packageData.price.toLocaleString("en-IN")}
-            </strong>
-            <span>Per Person</span>
+            <span className="package-sidebar__per-person">
+              ₹{formatPrice(currentPrice)} / person
+            </span>
+
+            <strong>₹{formatPrice(totalAmount)}</strong>
+
+            <span className="package-sidebar__total-label">
+              Total Package Amount
+            </span>
           </div>
 
           <div className="package-sidebar__advance">
@@ -65,7 +207,7 @@ function PackageBookingSidebar({ packageData }) {
           <button
             type="button"
             className="package-sidebar__enquire-btn"
-             onClick={() => navigate("/about-us#contact-form")}
+            onClick={() => navigate("/about-us#contact-form")}
           >
             ENQUIRE NOW
           </button>
@@ -74,7 +216,6 @@ function PackageBookingSidebar({ packageData }) {
 
       {/* Package Includes Card */}
       <div className="package-sidebar__includes-card">
-
         <div className="package-sidebar__details">
 
           <div className="package-sidebar__detail">
@@ -112,7 +253,6 @@ function PackageBookingSidebar({ packageData }) {
             </div>
           ))}
         </div>
-
       </div>
 
       {/* Need Help Card */}
@@ -151,6 +291,55 @@ function PackageBookingSidebar({ packageData }) {
       {/* Mobile Fixed Booking Bar */}
       <div className="package-sidebar__mobile-booking">
 
+        {/* Travelers Selection */}
+        <div className="package-sidebar__mobile-travelers">
+
+          <label htmlFor="mobile-package-person-count">
+            Select Travelers
+          </label>
+
+          <select
+            id="mobile-package-person-count"
+            value={selectedOption}
+            onChange={(e) => setSelectedOption(e.target.value)}
+          >
+            {pricing.perPerson?.map((item) => (
+              <option
+                key={item.people}
+                value={String(item.people)}
+              >
+                {item.people} {item.people === 1 ? "Person" : "Persons"}
+              </option>
+            ))}
+
+            {pricing.group !== undefined && (
+              <option value="group">Group</option>
+            )}
+          </select>
+
+        </div>
+
+        {/* Additional Travelers Field */}
+        {(selectedOption === "group") && (
+          <div className="package-sidebar__mobile-custom-travelers">
+
+            <label htmlFor="mobile-custom-travelers">
+              Number of Travelers
+            </label>
+
+            <input
+              id="mobile-custom-travelers"
+              type="number"
+              step="1"
+              value={customTravelers}
+              onChange={(e) => setCustomTravelers(e.target.value)}
+              placeholder="Enter travelers"
+            />
+
+          </div>
+        )}
+
+        {/* Booking Message */}
         <div className="package-sidebar__booking-message">
           <i className="bi bi-check-circle-fill"></i>
           <strong>
@@ -158,12 +347,21 @@ function PackageBookingSidebar({ packageData }) {
           </strong>
         </div>
 
+        {/* Bottom Price and Book Button */}
         <div className="package-sidebar__bottom-bar">
+
           <div className="package-sidebar__bottom-price">
+
+            <span className="package-sidebar__mobile-per-person">
+              ₹{formatPrice(currentPrice)} / person
+            </span>
+
             <strong>
-              ₹{packageData.price.toLocaleString("en-IN")}
+              ₹{formatPrice(totalAmount)}
             </strong>
-            <span>Per person on twin sharing</span>
+
+            <span>Total Package Amount</span>
+
           </div>
 
           <button
@@ -173,6 +371,7 @@ function PackageBookingSidebar({ packageData }) {
           >
             Book Now
           </button>
+
         </div>
 
       </div>
