@@ -1,24 +1,44 @@
 
-import hotel11 from "../assets/hotels/hotel0101.png";
-import hotel12 from "../assets/hotels/hotel0102.png";
-import hotel13 from "../assets/hotels/hotel0103.png";
-import hotel14 from "../assets/hotels/hotel0104.png";
-import hotel15 from "../assets/hotels/hotel0105.png";
+import h11 from "../assets/hotels/h11.png";
+import h12 from "../assets/hotels/h12.png";
+import h13 from "../assets/hotels/h13.png";
+import h14 from "../assets/hotels/h14.png";
+import h15 from "../assets/hotels/h15.png";
 
-import hotel2 from "../assets/hotels/hotel-2.jpg";
-import hotel3 from "../assets/hotels/hotel-3.jpg";
-import hotel4 from "../assets/hotels/hotel-4.jpg";
+import h21 from "../assets/hotels/h21.png";
+import h22 from "../assets/hotels/h22.png";
+import h23 from "../assets/hotels/h23.png";
+import h24 from "../assets/hotels/h24.png";
+import h25 from "../assets/hotels/h25.png";
+
+import h31 from "../assets/hotels/h31.png";
+import h32 from "../assets/hotels/h32.png";
+import h33 from "../assets/hotels/h33.png";
+import h34 from "../assets/hotels/h34.png";
+import h35 from "../assets/hotels/h35.png";
+
+import h41 from "../assets/hotels/h41.png";
+import h42 from "../assets/hotels/h42.png";
+import h43 from "../assets/hotels/h43.png";
+import h44 from "../assets/hotels/h44.png";
+import h45 from "../assets/hotels/h45.png";
+
+import h51 from "../assets/hotels/h51.png";
+import h52 from "../assets/hotels/h52.png";
+import h53 from "../assets/hotels/h53.png";
+import h54 from "../assets/hotels/h54.png";
+import h55 from "../assets/hotels/h55.png";
+
 
 // Reusable room options
-const createRoomOptions = (basePrice, image) => [
+const createRoomOptions = (basePrice) => [
   {
     id: "single",
     name: "Single Bed Room",
     bedType: "1 Single Bed",
     maxGuests: 1,
-    price: Math.round(basePrice * 0.75),
-    originalPrice: Math.round(basePrice * 0.9),
-    image,
+    price: basePrice,
+    originalPrice: Math.round(basePrice * 1.1),
     description:
       "Comfortable room suitable for solo travellers.",
     amenities: [
@@ -33,9 +53,8 @@ const createRoomOptions = (basePrice, image) => [
     name: "Double Bed Room",
     bedType: "1 Double Bed",
     maxGuests: 2,
-    price: basePrice,
-    originalPrice: Math.round(basePrice * 1.15),
-    image,
+    price: Math.round(basePrice * 1.25),
+    originalPrice: Math.round(basePrice * 1.35),
     description:
       "Spacious room with a comfortable double bed for couples.",
     amenities: [
@@ -51,9 +70,8 @@ const createRoomOptions = (basePrice, image) => [
     name: "Triple Bed Room",
     bedType: "3 Single Beds",
     maxGuests: 3,
-    price: Math.round(basePrice * 1.35),
-    originalPrice: Math.round(basePrice * 1.5),
-    image,
+    price: Math.round(basePrice * 1.45),
+    originalPrice: Math.round(basePrice * 1.45),
     description:
       "Large room with three beds, ideal for small families and groups.",
     amenities: [
@@ -70,25 +88,25 @@ const createRoomOptions = (basePrice, image) => [
 export const hotelsData = [
   {
     id: 1,
-    name: "Hotel Nakshatra INN",
+    name: "Hotel Gujarat Heritage",
 
-    image: hotel11,
+    image: h11,
 
     gallery: [
-      hotel11,
-      hotel12,
-      hotel13,
-      hotel14,
-      hotel15,
+      h11,
+      h12,
+      h13,
+      h14,
+      h15,
     ],
 
-    location: "Gangtok",
-    address: "M.P. Golai, Tadong, Gangtok, Sikkim 737102",
+    location: "Ujjain",
+    address: "Ujjain, M.P.",
     category: "Hotels",
     rating: 4.0,
     reviews: 120,
-    originalPrice: 4593,
-    price: 2775,
+    originalPrice: 2499,
+    price: 2199,
     discount: 20,
 
     overview:
@@ -110,112 +128,232 @@ export const hotelsData = [
     checkOutTime: "12:00 PM",
 
     taxes: 184,
-    rooms: createRoomOptions(3675, hotel11),
+    rooms: createRoomOptions(2199),
   },
 
   {
     id: 2,
-    name: "Valmere Magnolia Boutique Hotel",
-    image: hotel2,
-    gallery: [hotel2],
-    location: "Pelling",
-    address: "Near Old State Bank Of India, Lower Pelling, 737113",
+    name: "Hotel Maheshwari Inn",
+
+    image: h21,
+
+    gallery: [
+      h21,
+      h22,
+      h23,
+      h24,
+      h25,
+    ],
+
+    location: "Ujjain",
+    address: "Dewas Gate, Ujjain, M.P.",
     category: "Hotels",
-    rating: 4.0,
-    reviews: 95,
-    originalPrice: 4502,
-    price: 3602,
-    discount: 20,
+    rating: 4.2,
+    reviews: 145,
+    originalPrice: 2799,
+    price: 2399,
+    discount: 14,
 
     overview:
-      "Experience luxury and comfort in a peaceful boutique hotel. Enjoy well-maintained rooms, modern facilities and a relaxing stay in Pelling.",
+      "Enjoy a peaceful and comfortable stay near the famous Mahakaleshwar Temple. The hotel offers spacious rooms, modern facilities and convenient access to major attractions of Ujjain.",
 
     amenities: [
       "Free WiFi",
       "Restaurant",
-      "Room Service",
       "Parking",
+      "Room Service",
       "Air Conditioning",
+      "24/7 Front Desk",
     ],
 
     cancellationPolicy:
       "Free cancellation up to 24 hours before check-in. Cancellation charges may apply after the permitted period.",
 
-    checkInTime: "02:00 PM",
-    checkOutTime: "12:00 PM",
+    checkInTime: "12:00 PM",
+    checkOutTime: "11:00 AM",
 
-    taxes: 180,
-    rooms: createRoomOptions(3602, hotel2),
+    taxes: 200,
+    rooms: createRoomOptions(2399),
   },
 
   {
     id: 3,
-    name: "Mount Amara Hotel And Spa",
-    image: hotel3,
-    gallery: [hotel3],
-    location: "Siliguri",
-    address: "Siliguri, West Bengal, India",
+    name: "Hotel Pitambara Residency",
+
+    image: h31,
+
+    gallery: [
+      h31,
+      h32,
+      h33,
+      h34,
+      h35,
+    ],
+
+    location: "Ujjain",
+    address: "Jaisinghpura, Ujjain, M.P.",
     category: "Hotels",
-    rating: 3.0,
-    reviews: 80,
-    originalPrice: 2748,
-    price: 2199,
-    discount: 20,
+    rating: 4.1,
+    reviews: 98,
+    originalPrice: 2199,
+    price: 1999,
+    discount: 13,
 
     overview:
-      "A relaxing stay with modern rooms, comfortable accommodation and convenient city access. Suitable for leisure and business travellers.",
+      "A comfortable accommodation option for families and pilgrims visiting Ujjain. Enjoy clean rooms, friendly hospitality and easy connectivity to popular temples and local markets.",
 
     amenities: [
       "Free WiFi",
-      "Restaurant",
       "Parking",
-      "Air Conditioning",
       "Room Service",
+      "Air Conditioning",
+      "Family Rooms",
+      "Laundry Service",
     ],
 
     cancellationPolicy:
       "Free cancellation up to 24 hours before check-in. Cancellation charges may apply after the permitted period.",
 
-    checkInTime: "02:00 PM",
-    checkOutTime: "12:00 PM",
+    checkInTime: "01:00 PM",
+    checkOutTime: "11:00 AM",
 
-    taxes: 110,
-    rooms: createRoomOptions(2199, hotel3),
+    taxes: 180,
+    rooms: createRoomOptions(1999),
   },
 
   {
     id: 4,
-    name: "Mountain View Premium Resort",
-    image: hotel4,
-    gallery: [hotel4],
-    location: "Gangtok",
-    address: "Gangtok, Sikkim, India",
-    category: "Resorts",
-    rating: 5.0,
-    reviews: 150,
-    originalPrice: 6500,
-    price: 5200,
-    discount: 20,
+    name: "Hotel dev kripa",
+
+    image: h41,
+
+    gallery: [
+      h41,
+      h42,
+      h43,
+      h44,
+      h45,
+    ],
+
+    location: "Ujjain",
+    address: "Jaisinghpura Road, Ujjain, M.P.",
+    category: "Hotels",
+    rating: 4.3,
+    reviews: 175,
+    originalPrice: 2499,
+    price: 2099,
+    discount: 13,
 
     overview:
-      "Enjoy a premium mountain resort experience with scenic surroundings, comfortable rooms and excellent hospitality.",
+      "Experience a relaxing stay with well-maintained rooms and modern amenities. Suitable for families and travellers looking for a comfortable stay during their Ujjain visit.",
 
     amenities: [
       "Free WiFi",
-      "Swimming Pool",
       "Restaurant",
       "Parking",
       "Room Service",
       "Air Conditioning",
+      "Breakfast",
     ],
 
     cancellationPolicy:
       "Free cancellation up to 24 hours before check-in. Cancellation charges may apply after the permitted period.",
 
-    checkInTime: "02:00 PM",
-    checkOutTime: "12:00 PM",
+    checkInTime: "12:00 PM",
+    checkOutTime: "10:00 AM",
 
-    taxes: 260,
-    rooms: createRoomOptions(5200, hotel4),
+    taxes: 220,
+    rooms: createRoomOptions(2099),
   },
+
+  {
+    id: 5,
+    name: "Hotel Padmawati Palace",
+
+    image: h51,
+
+    gallery: [
+      h51,
+      h52,
+      h53,
+      h54,
+      h55,
+    ],
+
+    location: "Ujjain",
+    address: "Malipura, Ujjain, M.P.",
+    category: "Hotels",
+    rating: 4.0,
+    reviews: 110,
+    originalPrice: 2199,
+    price: 1999,
+    discount: 16,
+
+    overview:
+      "A budget-friendly stay offering comfortable accommodation for pilgrims and families. Conveniently located for exploring the spiritual attractions and heritage sites of Ujjain.",
+
+    amenities: [
+      "Free WiFi",
+      "Parking",
+      "Room Service",
+      "Air Conditioning",
+      "Family Rooms",
+      "24/7 Front Desk",
+    ],
+
+    cancellationPolicy:
+      "Free cancellation up to 24 hours before check-in. Cancellation charges may apply after the permitted period.",
+
+    checkInTime: "12:00 PM",
+    checkOutTime: "11:00 AM",
+
+    taxes: 150,
+    rooms: createRoomOptions(1999),
+  },
+
+  // {
+  //   id: 6,
+  //   name: "Hotel Avantika Comfort",
+
+  //   image: h61,
+
+  //   gallery: [
+  //     h61,
+  //     h62,
+  //     h63,
+  //     h64,
+  //     h65,
+  //   ],
+
+  //   location: "Ujjain",
+  //   address: "Nanakheda, Ujjain, M.P.",
+  //   category: "Hotels",
+  //   rating: 4.4,
+  //   reviews: 190,
+  //   originalPrice: 3299,
+  //   price: 2899,
+  //   discount: 12,
+
+  //   overview:
+  //     "Enjoy a pleasant stay with spacious accommodation, contemporary interiors and convenient facilities. Ideal for families and travellers exploring the temples and attractions of Ujjain.",
+
+  //   amenities: [
+  //     "Free WiFi",
+  //     "Restaurant",
+  //     "Parking",
+  //     "Room Service",
+  //     "Air Conditioning",
+  //     "Breakfast",
+  //   ],
+
+  //   cancellationPolicy:
+  //     "Free cancellation up to 24 hours before check-in. Cancellation charges may apply after the permitted period.",
+
+  //   checkInTime: "02:00 PM",
+  //   checkOutTime: "12:00 PM",
+
+  //   taxes: 250,
+  //   rooms: createRoomOptions(2899),
+  // },
+
 ];
