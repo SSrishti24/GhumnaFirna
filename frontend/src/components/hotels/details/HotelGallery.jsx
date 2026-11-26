@@ -22,7 +22,7 @@ function HotelGallery({ hotel }) {
     const interval = setInterval(() => {
       setActiveImage((prev) => prev + 1);
       setIsTransitioning(true);
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [images.length]);

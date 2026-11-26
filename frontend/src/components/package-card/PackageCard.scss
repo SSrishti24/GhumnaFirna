@@ -38,21 +38,21 @@
     justify-content: flex-end;
     background: linear-gradient(
       to top,
-      rgba(15, 23, 42, 0.85),
-      transparent 65%
+      rgba(15, 23, 42, 0.95),
+      transparent 95%
     );
   }
 
   h3 {
     color: $white;
-    font-size: 23px;
+    font-size: 21px;
     font-weight: 700;
     padding: 0 14px 8px;
     margin: 0;
   }
 
   &__price {
-    width: 85%;
+    width: 70%;
     border-radius: 0px 10px 0px 0px;
     padding: 10px 14px;
     background: $package-bg;
@@ -61,7 +61,7 @@
     font-weight: 700;
 
     span {
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 400;
       margin-left: 5px;
     }
@@ -77,14 +77,14 @@
     height: 190px;
 
     h3 {
-      font-size: 18px;
+      font-size: 14px;
       padding: 0 10px 6px;
     }
 
     &__price {
       width: 60%;
       padding: 8px 10px;
-      font-size: 15px;
+      font-size: 13px;
 
       span {
         font-size: 10px;
@@ -106,7 +106,7 @@
     }
 
     h3 {
-      font-size: 15px;
+      font-size: 12px;
       padding: 0 7px 5px;
     }
 
