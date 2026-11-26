@@ -50,7 +50,7 @@ function Navbar() {
 
   {/* Right: WhatsApp */}
   <a
-    href="https://wa.me/91"
+    href="https://wa.me/918450811911"
     target="_blank"
     rel="noopener noreferrer"
     className="navbar__whatsapp"

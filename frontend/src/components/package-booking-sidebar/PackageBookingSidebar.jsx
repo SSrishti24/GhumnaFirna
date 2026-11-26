@@ -122,7 +122,6 @@ function PackageBookingSidebar({ packageData }) {
     { name: "Hotel", icon: "bi-building" },
     { name: "Sightseeing", icon: "bi-person-walking" },
     { name: "Transfer", icon: "bi-car-front-fill" },
-    { name: "Meal", icon: "bi-cup-hot-fill" },
   ];
 
   return (
@@ -264,15 +263,13 @@ function PackageBookingSidebar({ packageData }) {
 
           <p>
             Call us:{" "}
-            <a href="tel:01143030303">011-43030303</a>
-            {" | "}
-            <a href="tel:43131313">43131313</a>
+            <a href="tel:8450811911">8450-811-911</a>
           </p>
 
           <p>
             Mail us:{" "}
-            <a href="mailto:Holidays@easemytrip.com">
-              Holidays@easemytrip.com
+            <a href="mailto:Support@ghumnafirna.com">
+              Support@ghumnafirna.com
             </a>
           </p>
         </div>

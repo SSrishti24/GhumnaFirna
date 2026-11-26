@@ -20,6 +20,40 @@ function AboutContact() {
   const enquiryCategory = location.state?.category || "";
   const enquiryDescription = location.state?.description || "";
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+
+    const name = formData.get("name");
+    const phone = formData.get("phone");
+    const category = formData.get("category");
+    const description = formData.get("description");
+
+    const message = `
+      Hello GhumnaFirna!
+
+      I want to make an enquiry.
+
+      *Customer Details*
+      Name: ${name}
+      Phone: ${phone}
+      Category: ${category}
+
+      *Enquiry Details*
+      ${description}
+
+      Thank you.
+    `.trim();
+
+    // GhumnaFirna WhatsApp number
+    const whatsappNumber = "918450811911";
+
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+  };
+
   // Scroll to the requested section when navigating with a URL hash
   useEffect(() => {
     if (location.hash) {
@@ -146,7 +180,7 @@ function AboutContact() {
               </div>
               <div>
                 <h4>Call Us</h4>
-                <p>+91 XXXXXXXXXX</p>
+                <p>+91 8450-811-911</p>
               </div>
             </div>
 
@@ -174,58 +208,61 @@ function AboutContact() {
           <div className="contact-form-wrapper">
             <h3>Send Us a Message</h3>
             <p>Fill out the form and we'll get back to you.</p>
-            <form className="contact-form" id="contact-form">
+              <form
+                className="contact-form"
+                id="contact-form"
+                onSubmit={handleSubmit}
+              >
+                <div className="form-row">
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    name="name"
+                    required
+                  />
 
-              <div className="form-row">
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  name="name"
+                  <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    name="phone"
+                    maxLength={10}
+                    pattern="[0-9]{10}"
+                    title="Please enter a valid 10-digit phone number"
+                    required
+                  />
+                </div>
+
+                <div className="form-row">
+                  <select
+                    name="category"
+                    defaultValue={enquiryCategory}
+                    required
+                  >
+                    <option value="" disabled>
+                      Select Category
+                    </option>
+
+                    <option value="Darshan">Darshan</option>
+                    <option value="Cab">Cab</option>
+                    <option value="Hotel">Hotel</option>
+                    <option value="Package">Package</option>
+                    <option value="Heritage">Heritage</option>
+                  </select>
+                </div>
+
+                <textarea
+                  name="description"
+                  placeholder="Tell us how we can help you..."
+                  rows="7"
+                  defaultValue={enquiryDescription}
+                  readOnly={Boolean(enquiryDescription)}
                   required
                 />
 
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  name="phone"
-                  maxLength={10}
-                  pattern="[0-9]{10}"
-                  required
-                />
-              </div>
-
-              <div className="form-row">
-                <select
-                  name="category"
-                  defaultValue={enquiryCategory}
-                  required
-                >
-                  <option value="" disabled>
-                    Select Category
-                  </option>
-
-                  <option value="Darshan">Darshan</option>
-                  <option value="Cab">Cab</option>
-                  <option value="Hotel">Hotel</option>
-                  <option value="Package">Package</option>
-                  <option value="Heritage">Heritage</option>
-                </select>
-              </div>
-
-              <textarea
-                name="description"
-                placeholder="Tell us how we can help you..."
-                rows="7"
-                defaultValue={enquiryDescription}
-                readOnly={Boolean(enquiryDescription)}
-                required
-              />
-
-              <button type="submit" className="primary-btn">
-                Send Message <FaPaperPlane />
-              </button>
-
-            </form>
+                <button type="submit" className="primary-btn">
+                  Send Message <FaPaperPlane />
+                </button>
+              </form>
           </div>
 
         </div>
