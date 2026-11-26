@@ -80,7 +80,6 @@
     font-size: 15px;
     font-weight: 700;
     line-height: 1.25;
-    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
 
@@ -191,6 +190,15 @@
   }
 }
 
+.hotel-card {
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: 3px;
+  }
+}
+
 // Tablet
 @media (max-width: 900px) {
   .hotel-card {
@@ -226,7 +234,7 @@
     }
 
     &__image {
-      height: 135px;
+      height: 210px;
 
       img {
         transform: none;
