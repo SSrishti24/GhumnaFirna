@@ -3,11 +3,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import Navbar from "../../components/navbar/Navbar";
-// import Footer from "../../components/footer/Footer";
 
 import BookingHotelSummary from "../../components/hotels/booking/BookingHotelSummary";
 import BookingRoomDetails from "../../components/hotels/booking/BookingRoomDetails";
-import GuestDetailsForm from "../../components/hotels/booking/GuestDetailsForm";
 import RoomPriceDetails from "../../components/hotels/booking/RoomPriceDetails";
 
 import "./HotelBooking.scss";
@@ -39,6 +37,7 @@ function HotelBooking() {
     phone: "",
   });
 
+  // Booking details validation
   if (!hotel || !selectedRoom || !bookingDetails || !priceBreakup) {
     return (
       <>
@@ -52,32 +51,86 @@ function HotelBooking() {
             Explore Hotels
           </button>
         </div>
-
-        <Footer />
       </>
     );
   }
 
+  // Format booking information for Contact Us description
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (contactDetails.phone.length !== 10) {
-      alert("Please enter a valid 10 digit mobile number.");
-      return;
-    }
+    const guestsInformation = guestDetails
+      .map((guest, index) => {
+        return `
+Guest ${index + 1}:
+Title: ${guest.title}
+Name: ${guest.firstName} ${guest.lastName}
+        `.trim();
+      })
+      .join("\n\n");
 
-    const bookingPayload = {
-      hotel,
-      selectedRoom,
-      bookingDetails,
-      guestDetails,
-      contactDetails,
-      priceBreakup,
-    };
+    const hotelDescription = `
+      HOTEL BOOKING INQUIRY
 
-    console.log("Hotel Booking Details:", bookingPayload);
+      HOTEL DETAILS
+      Hotel Name: ${hotel.name}
+      Hotel Location: ${hotel.location || hotel.address || "N/A"}
 
-    // Next step: connect this payload to your inquiry / booking API.
+      ROOM DETAILS
+      Room Name: ${selectedRoom.name}
+      Bed Type: ${selectedRoom.bedType || "N/A"}
+
+      TRAVEL DETAILS
+      Check-in Date: ${bookingDetails.checkIn || "N/A"}
+      Check-out Date: ${bookingDetails.checkOut || "N/A"}
+      Total Nights: ${bookingDetails.nights || 0}
+      Total Rooms: ${bookingDetails.rooms || 1}
+      Adults: ${bookingDetails.adults || 0}
+      Children: ${bookingDetails.children || 0}
+      Total Guests: ${bookingDetails.totalGuests || 0}
+
+      PRICE DETAILS
+      Price Per Room / Night: ₹${Number(
+        selectedRoom.price || 0
+      ).toLocaleString("en-IN")}
+      Total Rooms: ${bookingDetails.rooms || 1}
+      Total Nights: ${bookingDetails.nights || 0}
+      Room Total: ₹${Number(
+        (selectedRoom.price || 0) *
+        (bookingDetails.rooms || 1) *
+        (bookingDetails.nights || 0)
+      ).toLocaleString("en-IN")}
+      Taxes & Extra Charges: ₹${Number(
+        priceBreakup.grandTotal -
+        (
+          (selectedRoom.price || 0) *
+          (bookingDetails.rooms || 1) *
+          (bookingDetails.nights || 0)
+        )
+      ).toLocaleString("en-IN")}
+      Grand Total: ₹${Number(
+        priceBreakup.grandTotal || 0
+      ).toLocaleString("en-IN")}
+
+      Please contact me regarding this hotel booking.
+    `.trim();
+
+    // Send all details to Contact Us page
+    navigate("/about-us#contact-form", {
+      state: {
+        category: "Hotel",
+        description: hotelDescription,
+
+        hotel,
+        selectedRoom,
+        bookingDetails,
+        guestDetails,
+        contactDetails,
+        priceBreakup,
+
+        totalAmount: priceBreakup.grandTotal,
+      },
+    });
   };
 
   return (
@@ -101,14 +154,6 @@ function HotelBooking() {
                 <BookingRoomDetails
                   room={selectedRoom}
                   hotel={hotel}
-                />
-
-                <GuestDetailsForm
-                  adults={bookingDetails.adults}
-                  guestDetails={guestDetails}
-                  setGuestDetails={setGuestDetails}
-                  contactDetails={contactDetails}
-                  setContactDetails={setContactDetails}
                 />
 
               </div>
@@ -139,7 +184,9 @@ function HotelBooking() {
       <div className="hotel-booking__mobile-bar">
         <div>
           <small>
-            {bookingDetails.rooms} Room | {bookingDetails.nights} Night
+            {bookingDetails.rooms} Room
+            {bookingDetails.rooms > 1 ? "s" : ""} |{" "}
+            {bookingDetails.nights} Night
             {bookingDetails.nights > 1 ? "s" : ""} |{" "}
             {bookingDetails.totalGuests} Guests
           </small>
@@ -150,18 +197,17 @@ function HotelBooking() {
         </div>
 
         <button
-            type="button"
-            onClick={() =>
-                document.getElementById("hotel-booking-form")?.requestSubmit()
-            }
-            >
-            Continue Booking
+          type="button"
+          onClick={() =>
+            document
+              .getElementById("hotel-booking-form")
+              ?.requestSubmit()
+          }
+        >
+          Continue Booking
         </button>
       </div>
 
-      <div id="hotel-booking-submit" hidden />
-
-      {/* <Footer /> */}
     </>
   );
 }

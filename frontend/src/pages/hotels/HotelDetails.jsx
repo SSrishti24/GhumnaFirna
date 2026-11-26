@@ -174,6 +174,24 @@ function HotelDetails() {
     goToBooking(selectedRoom);
   };
 
+  const getTotalNights = () => {
+    if (!bookingData.checkIn || !bookingData.checkOut) return 0;
+
+    const checkIn = new Date(`${bookingData.checkIn}T00:00:00`);
+    const checkOut = new Date(`${bookingData.checkOut}T00:00:00`);
+
+    return Math.max(
+      0,
+      Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24))
+    );
+  };
+
+  const totalNights = getTotalNights();
+
+  const selectedRoomTotal = selectedRoom
+    ? selectedRoom.price * totalNights
+    : hotel.price * totalNights;
+
   if (!hotel) {
     return (
       <>
@@ -349,23 +367,21 @@ function HotelDetails() {
                         }`}
                         key={room.id}
                       >
-                        <div className="hotel-room__image">
-                          <img src={room.image} alt={room.name} />
-                        </div>
-
                         <div className="hotel-room__content">
                           <div className="hotel-room__info">
                             <h3>{room.name}</h3>
 
-                            <span className="hotel-room__bed">
-                              <i className="bi bi-moon-stars"></i>
-                              {room.bedType}
-                            </span>
+                            <div className="hotel-room__details">
+                              <span className="hotel-room__bed">
+                                <i className="bi bi-moon-stars"></i>
+                                {room.bedType}
+                              </span>
 
-                            <span className="hotel-room__guests">
-                              <i className="bi bi-people"></i>
-                              Up to {room.maxGuests} guests
-                            </span>
+                              <span className="hotel-room__guests">
+                                <i className="bi bi-people"></i>
+                                Up to {room.maxGuests} guests
+                              </span>
+                            </div>
 
                             <p>{room.description}</p>
 
@@ -427,7 +443,7 @@ function HotelDetails() {
                   <span>Starting from</span>
 
                   <strong>
-                    ₹{hotel.price.toLocaleString("en-IN")}
+                    ₹{(selectedRoom?.price ?? hotel.price).toLocaleString("en-IN")}
                   </strong>
 
                   <small>Per night / room</small>
@@ -465,18 +481,36 @@ function HotelDetails() {
       {/* Mobile Sticky Booking Bar */}
       <div className="hotel-details__mobile-bar">
         <div>
-          <small>Starting from</small>
-          <strong>
-            ₹{(selectedRoom?.price || hotel.price).toLocaleString("en-IN")}
-          </strong>
-          <span>Per night / room</span>
+          {selectedRoom && totalNights > 0 ? (
+            <>
+              <small>Total Booking Amount</small>
+
+              <strong>
+                ₹{selectedRoomTotal.toLocaleString("en-IN")}
+              </strong>
+
+              <span>
+                {totalNights} {totalNights === 1 ? "Night" : "Nights"}
+              </span>
+            </>
+          ) : (
+            <>
+              <small>Booking Amount</small>
+              <strong>Select Room</strong>
+              <span>Choose your room to see total price</span>
+            </>
+          )}
         </div>
 
         <button
           type="button"
           onClick={handleBookingAction}
         >
-          {!bookingData.checkIn ? "Choose Date" : "Choose Room"}
+          {!bookingData.checkIn || !bookingData.checkOut
+            ? "Choose Date"
+            : !selectedRoom
+              ? "Choose Room"
+              : "Book Now"}
         </button>
       </div>
 

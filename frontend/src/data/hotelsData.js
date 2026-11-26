@@ -1,5 +1,10 @@
 
-import hotel1 from "../assets/hotels/hotel-1.jpg";
+import hotel11 from "../assets/hotels/hotel0101.png";
+import hotel12 from "../assets/hotels/hotel0102.png";
+import hotel13 from "../assets/hotels/hotel0103.png";
+import hotel14 from "../assets/hotels/hotel0104.png";
+import hotel15 from "../assets/hotels/hotel0105.png";
+
 import hotel2 from "../assets/hotels/hotel-2.jpg";
 import hotel3 from "../assets/hotels/hotel-3.jpg";
 import hotel4 from "../assets/hotels/hotel-4.jpg";
@@ -65,16 +70,25 @@ const createRoomOptions = (basePrice, image) => [
 export const hotelsData = [
   {
     id: 1,
-    name: "Valmere Himalayan Hotel & Spa",
-    image: hotel1,
-    gallery: [hotel1],
+    name: "Hotel Nakshatra INN",
+
+    image: hotel11,
+
+    gallery: [
+      hotel11,
+      hotel12,
+      hotel13,
+      hotel14,
+      hotel15,
+    ],
+
     location: "Gangtok",
     address: "M.P. Golai, Tadong, Gangtok, Sikkim 737102",
     category: "Hotels",
     rating: 4.0,
     reviews: 120,
     originalPrice: 4593,
-    price: 3675,
+    price: 2775,
     discount: 20,
 
     overview:
@@ -96,7 +110,7 @@ export const hotelsData = [
     checkOutTime: "12:00 PM",
 
     taxes: 184,
-    rooms: createRoomOptions(3675, hotel1),
+    rooms: createRoomOptions(3675, hotel11),
   },
 
   {
