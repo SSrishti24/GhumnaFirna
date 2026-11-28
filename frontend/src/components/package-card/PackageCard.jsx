@@ -27,12 +27,12 @@ function PackageCard({ packageData }) {
         alt={packageData.title}
         className="package-card__image"
       />
-
-      <span className="package-card__duration">
-        {packageData.duration}
-      </span>
-
       <div className="package-card__overlay">
+        <span className="package-card__duration">
+          {packageData.duration}
+        </span>
+
+      
         <h3>{packageData.title}</h3>
 
         <div className="package-card__price">

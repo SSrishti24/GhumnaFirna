@@ -48,7 +48,7 @@ function Packages() {
 
       <section className="packages-page">
         <div className="packages-page__container">
-          <h1>Explore Our Packages</h1>
+          <h1>Explore Our <span>Packages</span></h1>
           <p>Find the perfect holiday for your next journey.</p>
 
           <div className="packages-page__grid">

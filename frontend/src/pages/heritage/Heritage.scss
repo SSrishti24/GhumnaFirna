@@ -17,11 +17,15 @@
     margin-bottom: 25px;
 
     h1 {
+      font-family: $font-secondary;
       margin-bottom: 2px;
       color: $text-dark;
       font-size: 30px;
       font-weight: 700;
       text-align: center;
+      span{
+        color: $primary;
+      }
     }
 
     p {
@@ -70,7 +74,7 @@
       margin-bottom: 18px;
 
       h1 {
-        font-size: 20px;
+        font-size: 24px;
       }
 
       p {

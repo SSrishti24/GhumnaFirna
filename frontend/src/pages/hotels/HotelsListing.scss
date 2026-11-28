@@ -32,10 +32,14 @@
     margin-bottom: 18px;
 
     h1 {
+      font-family: $font-secondary;
       margin: 0 0 5px;
       color: $text-dark;
-      font-size: 26px;
+      font-size: 30px;
       font-weight: 700;
+      span{
+        color: $primary;
+      }
     }
 
     p {
@@ -167,7 +171,7 @@
   .hotels-listing {
     &__header {
       h1 {
-        font-size: 19px;
+        font-size: 24px;
       }
 
       p {

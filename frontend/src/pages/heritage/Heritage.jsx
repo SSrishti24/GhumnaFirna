@@ -49,7 +49,7 @@ function Heritage() {
         <div className="heritage-page__container">
 
           <div className="heritage-page__heading">
-            <h1>Explore Heritage Destinations</h1>
+            <h1>Explore Heritage <span>Destinations</span></h1>
             <p>
               Discover India's rich history, royal architecture
               and heritage.

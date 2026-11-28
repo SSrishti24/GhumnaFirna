@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
-import TravelImage from "../../assets/packages/himachal.png"
+import TravelImage from "../../assets/himachal.png"
 
 import {
   FaMapMarkerAlt,

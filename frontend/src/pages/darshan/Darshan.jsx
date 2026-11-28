@@ -50,7 +50,7 @@ function Darshan() {
         <div className="darshan-page__container">
 
           <h1 className="darshan-page__heading">
-            Explore Darshan Packages
+            Explore Darshan <span>Packages</span>
           </h1>
 
           <p className="darshan-page__description">

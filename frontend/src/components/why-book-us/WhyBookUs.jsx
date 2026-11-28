@@ -34,12 +34,6 @@ const features = [
     title: "Trusted Travel Planning",
     description: "Plan your trips with confidence and convenience.",
   },
-  // {
-  //   id: 5,
-  //   icon: <FiHeart />,
-  //   title: "Memorable Journeys",
-  //   description: "Discover amazing destinations and create beautiful memories.",
-  // },
 ];
 
 function WhyBookUs() {
@@ -48,7 +42,7 @@ function WhyBookUs() {
       <div className="why-book-us__container">
 
         <h2 className="why-book-us__heading">
-          Why Book With Us?
+          Why Book <span>With Us?</span>
         </h2>
 
         <div className="why-book-us__list">

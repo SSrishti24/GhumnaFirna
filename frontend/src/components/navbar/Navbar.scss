@@ -147,7 +147,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0px 18px;
+      padding: 0px 20px;
     }
 
     // Logo Left
@@ -155,7 +155,8 @@
       justify-self: auto;
 
       img {
-        width: 135px;
+        width: 170px;
+        // height: 50px;
       }
     }
 
@@ -176,7 +177,7 @@
       box-shadow: none;
 
       svg {
-        font-size: 29px;
+        font-size: 32px;
       }
 
       span {
@@ -254,9 +255,9 @@
       padding: 0px 14px;
     }
 
-    // &__logo img {
-    //   width: 105px;
-    // }
+    &__logo img {
+      width: 105px;
+    }
   }
 
   .mobile-nav {

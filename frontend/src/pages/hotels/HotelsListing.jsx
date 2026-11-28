@@ -186,7 +186,7 @@ function HotelsListing() {
 
               <div className="hotels-listing__header">
                 <div>
-                  <h1>Explore Hotels & Resorts </h1>
+                  <h1>Explore <span> Hotels & Resorts</span></h1>
 
                   <p>
                     {filteredHotels.length} properties found across
