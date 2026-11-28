@@ -13,7 +13,7 @@ function PopularPackages() {
       <div className="popular-packages__container">
 
         <div className="popular-packages__header">
-          <h2>Our Popular Packages</h2>
+          <h2>Our Popular <span>Packages</span></h2>
 
           <button
             onClick={() => navigate("/packages")}

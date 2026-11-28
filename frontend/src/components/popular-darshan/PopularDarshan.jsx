@@ -14,7 +14,7 @@ function PopularDarshan() {
       <div className="popular-darshan__container">
 
         <div className="popular-darshan__header">
-          <h2>Popular Darshan Packages</h2>
+          <h2>Popular Darshan <span>Packages</span></h2>
 
           <button
             onClick={() => navigate("/darshan")}

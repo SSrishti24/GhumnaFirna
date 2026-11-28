@@ -23,7 +23,7 @@ function PackageBookingSidebar({ packageData }) {
 
   const travelerCount =
     selectedOption === "group"
-      ? Math.min(10, Math.max(8, Number(customTravelers) || 8))
+      ? Math.min(10, Math.max(4, Number(customTravelers) || 4))
       : Number(selectedOption);
 
   const totalAmount = currentPrice * travelerCount;

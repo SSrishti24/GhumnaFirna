@@ -66,7 +66,7 @@ function TravelCategories() {
               {category.title}
 
               {/* {category.isNew && (
-                <span className="new-badge">NEW</span>
+                <span className="new-badge">soon</span>
               )} */}
             </div>
           </div>
